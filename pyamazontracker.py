@@ -4,9 +4,11 @@ from bs4 import BeautifulSoup
 
 # url = "https://www.amazon.it/dp/B01CPUGGIW"    # prodotto normale (senza recensioni)
 # url = "https://www.amazon.it/gp/product/B01N2AYZBC"    # prodotto con offerta (con recensioni)
-url = "https://www.amazon.it/dp/B0764FT1HY"    # prodotto con offerta del giorno a tempo (con recensioni)
+url = "https://www.amazon.it/TESMED-elettrostimolatore-Muscolare-Power-potenziamento/dp/B0742H1F42"    # prodotto con offerta del giorno a tempo (con recensioni)
 
-page = requests.get(url,headers={"User-Agent":"Defined"})
+user_agent = "Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0"
+
+page = requests.get(url,headers={"User-Agent": user_agent})
 soup = BeautifulSoup(page.content, "html.parser")
 
 title = soup.find(id="productTitle").get_text().strip()    # titolo
