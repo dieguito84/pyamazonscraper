@@ -4,4 +4,8 @@
 # Editors
 .vscode
 
+# Bytecode
+__pycache__
+*.pyc
+
 # Application specific
