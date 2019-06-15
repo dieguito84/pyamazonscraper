@@ -1,2 +1,2 @@
 # pyamazontracker
-Amazon products price tracker
+Amazon.it products price tracker
