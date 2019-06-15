@@ -2,32 +2,33 @@ import re
 import requests
 from bs4 import BeautifulSoup
 
-# url = "https://www.amazon.it/dp/B01CPUGGIW"    # prodotto normale (senza recensioni)
-# url = "https://www.amazon.it/gp/product/B01N2AYZBC"    # prodotto con offerta (con recensioni)
-url = "https://www.amazon.it/TESMED-elettrostimolatore-Muscolare-Power-potenziamento/dp/B0742H1F42"    # prodotto con offerta del giorno a tempo (con recensioni)
+# URL FOR DEBUG
+# url = "https://www.amazon.it/dp/B01CPUGGIW"    # normal product (without reviews)
+# url = "https://www.amazon.it/gp/product/B01N2AYZBC"    # product in offer (with reviews)
+url = "https://www.amazon.it/TESMED-elettrostimolatore-Muscolare-Power-potenziamento/dp/B0742H1F42"    # product with timed daily offer (with reviews)
 
 user_agent = "Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0"
 
 page = requests.get(url,headers={"User-Agent": user_agent})
 soup = BeautifulSoup(page.content, "html.parser")
 
-title = soup.find(id="productTitle").get_text().strip()    # titolo
+title = soup.find(id="productTitle").get_text().strip()    # title
 
 try:
-    price = soup.find(id="priceblock_ourprice").get_text()   # prezzo normale
+    price = soup.find(id="priceblock_ourprice").get_text()   # normal price
     offer = False
 except AttributeError:
-    price = soup.find(id="priceblock_dealprice").get_text()   # prezzo offerta
+    price = soup.find(id="priceblock_dealprice").get_text()   # offer price
     offer = True
     try:
-        deal_expiry_time = soup.find(id=re.compile("deal_expiry_time")).get_text()    # utilizzato re.compile per trovare un pezzo di stringa tramite regula expression
+        deal_expiry_time = soup.find(id=re.compile("deal_expiry_time")).get_text()    # used re.compile to find a piece of string through regular expression
     except AttributeError:
-        deal_expiry_time = ""    # deal_expiry_time non valorizzato (non è un'offerta a tempo)
+        deal_expiry_time = ""    # deal_expiry_time without value (it's not a timed offer)
 
 try:
-    rating = soup.find(class_="a-icon-star").get_text()   # rating valorizzato (ci sono recensioni)
+    rating = soup.find(class_="a-icon-star").get_text()   # rating with value (there are reviews)
 except AttributeError:
-    rating = ""   # rating non valorizzato (non ci sono recensioni)
+    rating = ""   # rating without value (there are not reviews)
 
 print(f"Il titolo dell'articolo è {title}")
 if offer:
