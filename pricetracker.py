@@ -1,7 +1,9 @@
 from requests_html import HTMLSession
 
 class PriceTracker():
-    pass
+    '''
+    Amazon.it price tracker.
+    '''
 
     def html(self, url):
         '''
@@ -33,8 +35,15 @@ class PriceTracker():
         '''
         pass
 
-class Product():
-    pass
 
-    def __init_(self):
-        pass
+class Product():
+    '''
+    Basic product details.
+    '''
+
+    def __init_(self, title, price, rating, isoffer=False, offer_expiry_time=None):
+        self.title = title
+        self.price = price
+        self.rating = rating
+        self.isoffer = isoffer
+        self.offer_expiry_time = offer_expiry_time
