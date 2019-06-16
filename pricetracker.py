@@ -5,7 +5,7 @@ USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:67.0) Gecko/20100101 
 # TODO: use SQLite to store url to check, product details, users data for notifications
 # TODO: think the entire application with Telegram Bot integration in mind
 
-class PriceTracker():
+class PriceTracker:
     '''
     Amazon.it price tracker.
     '''
@@ -27,7 +27,7 @@ class PriceTracker():
         '''
         Parser to find product's title.
         '''
-        pass
+        return html.find("span[id=productTitle]", first=True).text
     
     def price(self, html):
         '''
@@ -48,7 +48,7 @@ class PriceTracker():
         pass
 
 
-class Product():
+class Product:
     '''
     Basic product details.
     '''
@@ -60,3 +60,8 @@ class Product():
         self.rating = rating
         self.isoffer = isoffer
         self.offer_expiry_time = offer_expiry_time
+
+#pt = PriceTracker()
+#page = pt.html("https://www.amazon.it/TESMED-elettrostimolatore-Muscolare-Power-potenziamento/dp/B0742H1F42")
+
+#print(pt.title(page))
