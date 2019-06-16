@@ -29,6 +29,7 @@ class PriceTracker:
         Parser to find product's title.
         '''
         self._title = html.find("span[id=productTitle]", first=True).text
+        
         return self._title
     
     def price(self, html):
@@ -39,6 +40,7 @@ class PriceTracker:
             self._price = html.find("span[id=priceblock_ourprice]", first=True).text
         except AttributeError:
             self._price = html.find("span[id=priceblock_dealprice]", first=True).text
+        
         return self._price
     
     def rating(self, html):
