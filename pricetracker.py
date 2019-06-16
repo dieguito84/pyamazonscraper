@@ -10,11 +10,18 @@ class PriceTracker():
     Amazon.it price tracker.
     '''
 
-    def html(self, url):
+    def html(self, url, user_agent=USER_AGENT):
         '''
         Get HTML code for given URL.
         '''
-        pass
+        self.url = url
+        self.user_agent = user_agent
+        self.session = HTMLSession()
+
+        self.page = self.session.get(url, headers={"User-Agent": user_agent})
+        self.page.html.render()
+
+        return self.page.html
     
     def title(self, html):
         '''
