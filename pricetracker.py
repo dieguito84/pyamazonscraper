@@ -1,3 +1,5 @@
+import re
+
 from requests_html import HTMLSession
 
 USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:67.0) Gecko/20100101 Firefox/67.0"
@@ -69,7 +71,21 @@ class PriceTracker:
             return False
     
     def deal_expiry_time(self, html):
-        pass
+        self._det_full = html.find("table[class=a-lineitem]", first=True)   # get a wide section to refine the search later 
+        self._det_mid = self._det_full.find("td.a-span12")[2]    # get the third class="a-span12" found
+        self._str = "deal_expiry_timer_"
+        #print(test2.html.find(self._str))
+        self._det_code = self._det_mid.html[self._det_mid.html.find(self._str) + len(self._str):self._det_mid.html.find(self._str) + len(self._str) + 8]    # find dea:expiry_time unique code (8 characters)
+        #sel = 'table.a-lineitem > tbody'
+        #print(html.find(sel)[0].full_text)
+        try:
+            #self._deal_expiry_time = html.find("span[id=deal_expiry_timer]", first=True).text
+            #self._deal_expiry_time = test.find("td.a-span12")[2].text
+            self._deal_expiry_time = html.find("span[id=" + self._str + self._det_code + "]", first=True).text[13:]
+        except AttributeError:
+            self._deal_expiry_time = None
+        
+        return self._deal_expiry_time
 
 
 class Product:
@@ -87,9 +103,11 @@ class Product:
 
 pt = PriceTracker()
 #page = pt.html("https://www.amazon.it/TESMED-elettrostimolatore-Muscolare-Power-potenziamento/dp/B0742H1F42")
-page = pt.html("https://www.amazon.it/dp/B06XCF2JW1/ref=gbps_img_s-5_1669_ff19bcc3?smid=A11IL2PNWYJU7H&pf_rd_p=55660c59-f0e0-412d-84b8-63a94ff41669&pf_rd_s=slot-5&pf_rd_t=701&pf_rd_i=gb_main&pf_rd_m=A11IL2PNWYJU7H&pf_rd_r=XW61YXDK60Y35B4HF7CX")
+page = pt.html("https://www.amazon.it/HP-Monitor-Curvo-FreeSync-Argento/dp/B071LM1HYK/ref=gbps_tit_s-5_1669_17054278?smid=A11IL2PNWYJU7H&pf_rd_p=55660c59-f0e0-412d-84b8-63a94ff41669&pf_rd_s=slot-5&pf_rd_t=701&pf_rd_i=gb_main&pf_rd_m=A11IL2PNWYJU7H&pf_rd_r=ABY2DQ1E9WFMGKVZD0V8")
 #page = pt.html("https://www.amazon.it/Tommy-Hilfiger-Maglietta-Captain-Medium/dp/B07L37J51Y/ref=sr_1_26?pf_rd_i=8805220031&pf_rd_m=A2VX19DFO3KCLO&pf_rd_p=c03a04c1-2325-4408-a172-1309a5cb832c&pf_rd_r=VR1FK5VEDV6FKB995GXC&pf_rd_s=merchandised-search-2&pf_rd_t=101&qid=1560727079&rw_html_to_wsrp=1&s=apparel&sr=1-26")
 print(pt.title(page))
 print(pt.price(page))
 print(pt.rating(page))
 print(pt.is_deal(page))
+if pt.is_deal(page) == True:
+    print(pt.deal_expiry_time(page))
