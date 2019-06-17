@@ -79,6 +79,7 @@ class PriceTracker:
             self._deal_expiry_time = html.find("span[id=" + self._str + self._det_code + "]", first=True).text[13:]
         except AttributeError:
             self._deal_expiry_time = None
+        # TODO: probably AttributeError will never be raised since self._det_full.find("td.a-span12")[2] will be always with a value (wrong but present). Need to fix it.
         
         return self._deal_expiry_time
 
