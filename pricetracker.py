@@ -51,11 +51,9 @@ class PriceTracker:
         '''
         Parser to find product's rating.
         '''
-        self._ratingfull = html.find("div[id=averageCustomerReviews]", first=True)    # get a wide section to refine the search later
+        self._rating_full = html.find("div[id=averageCustomerReviews]", first=True)    # get a wide section to refine the search later
         try:
-            #self._rating = html.find("div[id=averageCustomerReviews]", first=True).text
-            #self._rating = html.find("i.a-icon-star", first=True).text
-            self._rating = self._ratingfull.find("i.a-icon-star", first=True).text    # search refined
+            self._rating = self._rating_full.find("i.a-icon-star", first=True).text    # search refined
         except AttributeError:
             self._rating = None
         
@@ -63,7 +61,7 @@ class PriceTracker:
     
     def is_deal(self, html):
         '''
-        Check if the product is an offer
+        Check if the product is a deal
         '''
         if html.find("span[id=priceblock_dealprice]", first=True):
             return True
@@ -76,10 +74,10 @@ class PriceTracker:
         self._str = "deal_expiry_timer_"
         self._det_code = self._det_mid.html[self._det_mid.html.find(self._str) + len(self._str):self._det_mid.html.find(self._str) + len(self._str) + 8]    # find deal_expiry_time unique code using slicing (8 characters long)
         try:
-            self._deal_expiry_time = html.find("span[id=" + self._str + self._det_code + "]", first=True).text[13:]
+            self._deal_expiry_time = html.find("span[id=" + self._str + self._det_code + "]", first=True).text[13:]    # search refined
         except AttributeError:
             self._deal_expiry_time = None
-        # TODO: probably AttributeError will never be raised since self._det_full.find("td.a-span12")[2] will be always with a value (wrong but present). Need to fix it.
+        # TODO: probably AttributeError will never be raised since self._det_full.find("td.a-span12")[2] will be always with a value (wrong but present). Need to verify and fix it.
         
         return self._deal_expiry_time
 
