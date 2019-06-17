@@ -75,7 +75,7 @@ class PriceTracker:
         self._det_mid = self._det_full.find("td.a-span12")[2]    # get the third class="a-span12" found
         self._str = "deal_expiry_timer_"
         #print(test2.html.find(self._str))
-        self._det_code = self._det_mid.html[self._det_mid.html.find(self._str) + len(self._str):self._det_mid.html.find(self._str) + len(self._str) + 8]    # find dea:expiry_time unique code (8 characters)
+        self._det_code = self._det_mid.html[self._det_mid.html.find(self._str) + len(self._str):self._det_mid.html.find(self._str) + len(self._str) + 8]    # find deal_expiry_time unique code using slicing (8 characters long)
         #sel = 'table.a-lineitem > tbody'
         #print(html.find(sel)[0].full_text)
         try:
