@@ -75,6 +75,7 @@ class PriceTracker:
         self._det_code = self._det_mid.html[self._det_mid.html.find(self._str) + len(self._str):self._det_mid.html.find(self._str) + len(self._str) + 8]    # find deal_expiry_time unique code using slicing (8 characters long)
         try:
             self._deal_expiry_time = html.find("span[id=" + self._str + self._det_code + "]", first=True).text[13:]    # search refined
+            # TODO: find a better way to discover deal_expiry_time unique code. Maybe using regular expression?
         except AttributeError:
             self._deal_expiry_time = None
         # TODO: probably AttributeError will never be raised since self._det_full.find("td.a-span12")[2] will be always with a value (wrong but present). Need to verify and fix it.
