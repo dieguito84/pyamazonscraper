@@ -74,13 +74,8 @@ class PriceTracker:
         self._det_full = html.find("table[class=a-lineitem]", first=True)   # get a wide section to refine the search later 
         self._det_mid = self._det_full.find("td.a-span12")[2]    # get the third class="a-span12" found
         self._str = "deal_expiry_timer_"
-        #print(test2.html.find(self._str))
         self._det_code = self._det_mid.html[self._det_mid.html.find(self._str) + len(self._str):self._det_mid.html.find(self._str) + len(self._str) + 8]    # find deal_expiry_time unique code using slicing (8 characters long)
-        #sel = 'table.a-lineitem > tbody'
-        #print(html.find(sel)[0].full_text)
         try:
-            #self._deal_expiry_time = html.find("span[id=deal_expiry_timer]", first=True).text
-            #self._deal_expiry_time = test.find("td.a-span12")[2].text
             self._deal_expiry_time = html.find("span[id=" + self._str + self._det_code + "]", first=True).text[13:]
         except AttributeError:
             self._deal_expiry_time = None
