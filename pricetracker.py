@@ -59,7 +59,7 @@ class PriceTracker:
         
         return self._rating
     
-    def isoffer(self, html):
+    def is_deal(self, html):
         '''
         Check if the product is an offer
         '''
@@ -74,12 +74,12 @@ class Product:
     Basic product details.
     '''
 
-    def __init_(self, url, title, price, rating, isoffer=False, offer_expiry_time=None):
+    def __init_(self, url, title, price, rating, is_deal=False, offer_expiry_time=None):
         self.url = url
         self.title = title
         self.price = price
         self.rating = rating
-        self.isoffer = isoffer
+        self.is_deal = is_deal
         self.offer_expiry_time = offer_expiry_time
 
 pt = PriceTracker()
@@ -89,4 +89,4 @@ page = pt.html("https://www.amazon.it/dp/B06XCF2JW1/ref=gbps_img_s-5_1669_ff19bc
 print(pt.title(page))
 print(pt.price(page))
 print(pt.rating(page))
-print(pt.isoffer(page))
+print(pt.is_deal(page))
