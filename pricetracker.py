@@ -47,9 +47,11 @@ class PriceTracker:
         '''
         Parser to find product's rating.
         '''
+        self._ratingfull = html.find("div[id=averageCustomerReviews]", first=True)    # get a wide section to refine the search later
         try:
-            self._rating = html.find("span[class=a-icon-alt]", first=True).text
-            # TODO: find a better HTML tag because AttributeError is never raised right now
+            #self._rating = html.find("div[id=averageCustomerReviews]", first=True).text
+            #self._rating = html.find("i.a-icon-star", first=True).text
+            self._rating = self._ratingfull.find("i.a-icon-star", first=True).text    # search refined
         except AttributeError:
             self._rating = None
         
