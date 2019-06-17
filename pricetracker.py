@@ -59,7 +59,7 @@ class PriceTracker:
         
         return self._rating
     
-    def offer(self, html):
+    def isoffer(self, html):
         '''
         Check if the product is an offer
         '''
@@ -89,4 +89,4 @@ page = pt.html("https://www.amazon.it/dp/B06XCF2JW1/ref=gbps_img_s-5_1669_ff19bc
 print(pt.title(page))
 print(pt.price(page))
 print(pt.rating(page))
-print(pt.offer(page))
+print(pt.isoffer(page))
