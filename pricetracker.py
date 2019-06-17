@@ -67,6 +67,9 @@ class PriceTracker:
             return True
         else:
             return False
+    
+    def deal_expiry_time(self, html):
+        pass
 
 
 class Product:
