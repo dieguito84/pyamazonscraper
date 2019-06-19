@@ -6,7 +6,6 @@ USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:67.0) Gecko/20100101 
 # Do I really need Javascript in this specific task?
 # TODO: use SQLite to store url to check, product details, users data for notifications
 # TODO: think the entire application with Telegram Bot integration in mind
-# TODO: add management of deal_expiry_time, probably with a different method than price()
 
 class PriceTracker:
     '''
