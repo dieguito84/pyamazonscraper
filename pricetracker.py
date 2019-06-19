@@ -4,6 +4,7 @@ USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:67.0) Gecko/20100101 
 
 # TODO: evaluate the use of BeautifulSoup insteat of requests_html. Pro: is faster and is compatible with Python 3.5. Cons: do not support Javascript
 # Do I really need Javascript in this specific task?
+# TODO: write a parallel application (pricetracker_bs.py) to test BeautifulSoup performances and code needed to do same things
 # TODO: use SQLite to store url to check, product details, users data for notifications
 # TODO: think the entire application with Telegram Bot integration in mind
 
