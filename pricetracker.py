@@ -87,6 +87,9 @@ class Product:
     '''
 
     def __init__(self, url, title, price, rating, is_deal=False, offer_expiry_time=None):
+        '''
+        Object constructor.
+        '''
         self.url = url
         self.title = title
         self.price = price
