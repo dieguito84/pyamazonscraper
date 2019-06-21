@@ -86,7 +86,7 @@ class Product:
     Basic product details.
     '''
 
-    def __init_(self, url, title, price, rating, is_deal=False, offer_expiry_time=None):
+    def __init__(self, url, title, price, rating, is_deal=False, offer_expiry_time=None):
         self.url = url
         self.title = title
         self.price = price
