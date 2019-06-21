@@ -59,7 +59,7 @@ class PriceTracker:
     
     def is_deal(self, html):
         '''
-        Check if the product is a deal
+        Check if the product is a deal.
         '''
         if html.find("span[id=priceblock_dealprice]", first=True):
             return True
@@ -67,6 +67,9 @@ class PriceTracker:
             return False
     
     def deal_expiry_time(self, html):
+        '''
+        Get time remaining for a deal.
+        '''
         self._det_full = html.find("table[class=a-lineitem]", first=True)   # get a wide section to refine the search later 
         self._det_mid = self._det_full.find("td.a-span12")[2]    # get the third class="a-span12" found
         self._str = "deal_expiry_timer_"
