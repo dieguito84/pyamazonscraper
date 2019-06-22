@@ -46,9 +46,9 @@ class PriceTracker:
         Parser to find product's rating.
         '''
         try:
-            self._rating = html.find(class_="a-icon-star").get_text()   # rating with value (there are reviews)
+            self._rating = html.find(class_="a-icon-star").get_text()   # with value (there are reviews)
         except AttributeError:
-            self._rating = None
+            self._rating = None    # without value (there are not reviews)
         
         return self._rating
     
