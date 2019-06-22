@@ -45,6 +45,7 @@ class PriceTracker:
         '''
         Parser to find product's rating.
         '''
+        print(html.find(class_="a-icon-star"))
         try:
             self._rating = html.find(class_="a-icon-star").get_text()   # with value (there are reviews)
         except AttributeError:
@@ -56,7 +57,10 @@ class PriceTracker:
         '''
         Check if the product is a deal.
         '''
-        pass
+        if html.find(id="priceblock_dealprice"):
+            return True
+        else:
+            return False
     
     def deal_expiry_time(self, html):
         '''
@@ -77,7 +81,10 @@ class Product:
         pass
 
 pt = PriceTracker()
-page = pt.html("https://www.amazon.it/TESMED-elettrostimolatore-Muscolare-Power-potenziamento/dp/B0742H1F42")
+#page = pt.html("https://www.amazon.it/TESMED-elettrostimolatore-Muscolare-Power-potenziamento/dp/B0742H1F42")
+page = pt.html("https://www.amazon.it/HP-Monitor-Curvo-FreeSync-Argento/dp/B071LM1HYK/ref=gbps_tit_s-5_1669_17054278?smid=A11IL2PNWYJU7H&pf_rd_p=55660c59-f0e0-412d-84b8-63a94ff41669&pf_rd_s=slot-5&pf_rd_t=701&pf_rd_i=gb_main&pf_rd_m=A11IL2PNWYJU7H&pf_rd_r=ABY2DQ1E9WFMGKVZD0V8")
+#page = pt.html("https://www.amazon.it/Tommy-Hilfiger-Maglietta-Captain-Medium/dp/B07L37J51Y/ref=sr_1_26?pf_rd_i=8805220031&pf_rd_m=A2VX19DFO3KCLO&pf_rd_p=c03a04c1-2325-4408-a172-1309a5cb832c&pf_rd_r=VR1FK5VEDV6FKB995GXC&pf_rd_s=merchandised-search-2&pf_rd_t=101&qid=1560727079&rw_html_to_wsrp=1&s=apparel&sr=1-26")
 print(pt.title(page))
 print(pt.price(page))
 print(pt.rating(page))
+print(pt.is_deal(page))
