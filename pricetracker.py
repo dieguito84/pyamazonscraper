@@ -21,7 +21,7 @@ class PriceTracker:
         self.user_agent = user_agent
         self.session = HTMLSession()
 
-        self.page = self.session.get(url, headers={"User-Agent": user_agent})
+        self.page = self.session.get(self.url, headers={"User-Agent": self.user_agent})
         self.page.html.render()
 
         return self.page.html
