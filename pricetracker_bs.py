@@ -77,11 +77,16 @@ class Product:
     Basic product details.
     '''
 
-    def ___init___(self, url, title, price, rating, is_deal=False, offer_expiry_time=None):
+    def ___init___(self, url, title, price, rating, is_deal=False, deal_expiry_time=None):
         '''
         Object constructor.
         '''
-        pass
+        self.url = url
+        self.title = title
+        self.price = price
+        self.rating = rating
+        self.is_deal = is_deal
+        self.deal_expiry_time = deal_expiry_time
 
 pt = PriceTracker()
 #page = pt.html("https://www.amazon.it/TESMED-elettrostimolatore-Muscolare-Power-potenziamento/dp/B0742H1F42")
