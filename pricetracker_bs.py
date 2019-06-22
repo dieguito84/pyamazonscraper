@@ -26,7 +26,9 @@ class PriceTracker:
         '''
         Parser to find product's title.
         '''
-        pass
+        self._title = html.find(id="productTitle").get_text().strip()
+
+        return self._title
     
     def price(self, html):
         '''
@@ -63,3 +65,7 @@ class Product:
         Object constructor.
         '''
         pass
+
+pt = PriceTracker()
+page = pt.html("https://www.amazon.it/TESMED-elettrostimolatore-Muscolare-Power-potenziamento/dp/B0742H1F42")
+print(pt.title(page))
