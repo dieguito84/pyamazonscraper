@@ -80,7 +80,7 @@ class Product:
     Basic product details.
     '''
 
-    def ___init___(self, url, title, price, rating, is_deal=False, deal_expiry_time=None):
+    def __init__(self, url, title, price, rating, is_deal=False, deal_expiry_time=None):
         '''
         Object constructor.
         '''
