@@ -45,8 +45,9 @@ class PriceTracker:
         '''
         Parser to find product's rating.
         '''
+        self._rating_full = html.find(id="averageCustomerReviews")    # get a wide section to refine the search later
         try:
-            self._rating = html.find(class_="a-icon-star").get_text()   # with value (there are reviews)
+            self._rating = self._rating_full.find(class_="a-icon-star").get_text()   # search refined - with value (there are reviews)
         except AttributeError:
             self._rating = None    # without value (there are not reviews)
         
