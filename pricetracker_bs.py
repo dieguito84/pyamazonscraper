@@ -1,3 +1,4 @@
+import re
 import requests
 
 from bs4 import BeautifulSoup
@@ -66,7 +67,9 @@ class PriceTracker:
         '''
         Get time remaining for a deal.
         '''
-        pass
+        self._deal_expiry_time = html.find(id=re.compile("deal_expiry_time")).get_text()    # used re.compile to find a piece of string through regular expression
+
+        return self._deal_expiry_time[13:]    # remove "Termina tra "
     
 
 class Product:
@@ -82,9 +85,12 @@ class Product:
 
 pt = PriceTracker()
 #page = pt.html("https://www.amazon.it/TESMED-elettrostimolatore-Muscolare-Power-potenziamento/dp/B0742H1F42")
-page = pt.html("https://www.amazon.it/HP-Monitor-Curvo-FreeSync-Argento/dp/B071LM1HYK/ref=gbps_tit_s-5_1669_17054278?smid=A11IL2PNWYJU7H&pf_rd_p=55660c59-f0e0-412d-84b8-63a94ff41669&pf_rd_s=slot-5&pf_rd_t=701&pf_rd_i=gb_main&pf_rd_m=A11IL2PNWYJU7H&pf_rd_r=ABY2DQ1E9WFMGKVZD0V8")
+#page = pt.html("https://www.amazon.it/HP-Monitor-Curvo-FreeSync-Argento/dp/B071LM1HYK/ref=gbps_tit_s-5_1669_17054278?smid=A11IL2PNWYJU7H&pf_rd_p=55660c59-f0e0-412d-84b8-63a94ff41669&pf_rd_s=slot-5&pf_rd_t=701&pf_rd_i=gb_main&pf_rd_m=A11IL2PNWYJU7H&pf_rd_r=ABY2DQ1E9WFMGKVZD0V8")
 #page = pt.html("https://www.amazon.it/Tommy-Hilfiger-Maglietta-Captain-Medium/dp/B07L37J51Y/ref=sr_1_26?pf_rd_i=8805220031&pf_rd_m=A2VX19DFO3KCLO&pf_rd_p=c03a04c1-2325-4408-a172-1309a5cb832c&pf_rd_r=VR1FK5VEDV6FKB995GXC&pf_rd_s=merchandised-search-2&pf_rd_t=101&qid=1560727079&rw_html_to_wsrp=1&s=apparel&sr=1-26")
+page = pt.html("https://www.amazon.it/KS801SE-QS-Seghetto-Alternativo-Autoselect-Pendolare/dp/B00VVFK5QC/ref=gbps_img_s-5_1669_361c1bd6?smid=A11IL2PNWYJU7H&pf_rd_p=55660c59-f0e0-412d-84b8-63a94ff41669&pf_rd_s=slot-5&pf_rd_t=701&pf_rd_i=gb_main&pf_rd_m=A11IL2PNWYJU7H&pf_rd_r=7C21SMYBVDQ9EBNDJX9K")
 print(pt.title(page))
 print(pt.price(page))
 print(pt.rating(page))
 print(pt.is_deal(page))
+if pt.is_deal(page) == True:
+    print(pt.deal_expiry_time(page))
