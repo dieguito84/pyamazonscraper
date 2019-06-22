@@ -45,7 +45,12 @@ class PriceTracker:
         '''
         Parser to find product's rating.
         '''
-        pass
+        try:
+            self._rating = html.find(class_="a-icon-star").get_text()   # rating with value (there are reviews)
+        except AttributeError:
+            self._rating = None
+        
+        return self._rating
     
     def is_deal(self, html):
         '''
@@ -75,3 +80,4 @@ pt = PriceTracker()
 page = pt.html("https://www.amazon.it/TESMED-elettrostimolatore-Muscolare-Power-potenziamento/dp/B0742H1F42")
 print(pt.title(page))
 print(pt.price(page))
+print(pt.rating(page))
