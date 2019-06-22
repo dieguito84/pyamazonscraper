@@ -34,7 +34,12 @@ class PriceTracker:
         '''
         Parser to find product's price.
         '''
-        pass
+        try:
+            self._price = html.find(id="priceblock_ourprice").get_text()    # normal price
+        except AttributeError:
+            self._price = html.find(id="priceblock_dealprice").get_text()    # deal price
+        
+        return self._price
     
     def rating(self, html):
         '''
@@ -69,3 +74,4 @@ class Product:
 pt = PriceTracker()
 page = pt.html("https://www.amazon.it/TESMED-elettrostimolatore-Muscolare-Power-potenziamento/dp/B0742H1F42")
 print(pt.title(page))
+print(pt.price(page))
