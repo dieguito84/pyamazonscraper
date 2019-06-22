@@ -15,7 +15,12 @@ class PriceTracker:
         '''
         Get HTML code for given URL.
         '''
-        pass
+        self.url = url
+        self.user_agent = user_agent
+        self.page = requests.get(self.url ,headers={"User-Agent": self.user_agent})
+        self.soup = BeautifulSoup(self.page.content, "html.parser")
+
+        return self.soup
     
     def title(self, html):
         '''
