@@ -103,5 +103,4 @@ print(pt.title(page))
 print(pt.price(page))
 print(pt.rating(page))
 print(pt.is_deal(page))
-if pt.is_deal(page) == True:
-    print(pt.deal_expiry_time(page))
+print(pt.deal_expiry_time(page))
