@@ -70,10 +70,10 @@ class PriceTracker:
         '''
         Get time remaining for a deal.
         '''
-        if pt.is_deal(page) == True:
+        if pt.is_deal(page) == True:    # first check if is a deal using is_deal method
             self._deal_expiry_time = html.find(id=re.compile("deal_expiry_time")).get_text()    # used re.compile to find a piece of string through regular expression
             return self._deal_expiry_time[13:]    # remove "Termina tra "
-        else:
+        else:    # if is not a deal just return None
             self._deal_expiry_time = None
             return self._deal_expiry_time
     
