@@ -104,3 +104,15 @@ print(pt.price(page))
 print(pt.rating(page))
 print(pt.is_deal(page))
 print(pt.deal_expiry_time(page))
+
+url = "https://www.amazon.it/KS801SE-QS-Seghetto-Alternativo-Autoselect-Pendolare/dp/B00VVFK5QC/ref=gbps_img_s-5_1669_361c1bd6?smid=A11IL2PNWYJU7H&pf_rd_p=55660c59-f0e0-412d-84b8-63a94ff41669&pf_rd_s=slot-5&pf_rd_t=701&pf_rd_i=gb_main&pf_rd_m=A11IL2PNWYJU7H&pf_rd_r=7C21SMYBVDQ9EBNDJX9K"
+
+obj = Product(url, pt.title(page), pt.price(page), pt.rating(page), pt.is_deal(page), pt.deal_expiry_time(page))
+
+print(type(obj))
+
+print(obj.title)
+print(obj.price)
+print(obj.rating)
+print(obj.is_deal)
+print(obj.deal_expiry_time)
