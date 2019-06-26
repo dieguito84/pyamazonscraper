@@ -95,6 +95,9 @@ class Product:
         self.deal_expiry_time = deal_expiry_time
     
     def details(self):
+        '''
+        Print product details.
+        '''
         print("L'URL dell'articolo è " + self.url)
         print("Il titolo dell'articolo è " + self.title)
         if self.is_deal == True:
