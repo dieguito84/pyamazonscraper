@@ -10,17 +10,17 @@ USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:67.0) Gecko/20100101 
 # TODO: think the entire application with Telegram Bot integration in mind
 # TODO: use SQLite to store url to check, product details, users data for notifications
 # SQLite tables fields:
-# unique id (autoincrement, primary key) - integer
-# user identifier (telegram nickname?) - text
-# product asin - text
-# product url (shortened in some way, until asin) - text
-# product title - text
-# product price - real
-# product rating - real if present, integer 0 if not present
-# is deal - integer 0 = no, integer 1 = yes
-# deal expiry time - integer 0 if not present, text (datetime) if present
-# last check - integer 0 if not present, text (datetime) if present
-# price difference from last check - real
+# unique id (autoincrement, primary key) - int
+# user identifier (telegram nickname?) - varchar
+# product asin - varchar
+# product url (shortened in some way, until asin) - varchar
+# product title - varchar
+# product price - float
+# product rating - float if present, int 0 if not present
+# is deal - int 0 = no, int 1 = yes
+# deal expiry time - int 0 if not present, datetime if present
+# last check - int 0 if not present, datetime if present
+# price difference from last check - float
 
 class PriceTracker:
     '''
