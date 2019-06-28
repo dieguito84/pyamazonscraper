@@ -18,7 +18,9 @@ USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:67.0) Gecko/20100101 
 # product price - real
 # product rating - real if present, integer 0 if not present
 # is deal - integer 0 = no, integer 1 = yes
-# deal expiry time - integer 0 if not present, text (datetime) if present 
+# deal expiry time - integer 0 if not present, text (datetime) if present
+# last check - integer 0 if not present, text (datetime) if present
+# price difference from last check - real
 
 class PriceTracker:
     '''
