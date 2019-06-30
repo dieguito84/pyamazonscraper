@@ -127,6 +127,7 @@ class Product:
             print("Non ci sono recensioni")
 
 
+# TODO: evaluate if it is better to split database management into a standalone module (db.py?)
 class Database (object):
     '''
     Database management
