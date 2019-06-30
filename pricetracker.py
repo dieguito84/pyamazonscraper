@@ -138,12 +138,13 @@ class Database (object):
         '''
         Object constructor.
         '''
+        self.db_is_new = not os.path.exists(db_file)
         self.db = sqlite3.connect(db_file)
         self.db_file = db_file    # is it really useful?
-        self.db_is_new = not os.path.exists(db_file)
         if self.db_is_new:
             pass
             # instructions to create schema
+
 
 pt = PriceTracker()
 
@@ -154,3 +155,5 @@ url = "https://www.amazon.it/Rowenta-Smart-Force-Essential-Aspirapolvere/dp/B07B
 obj = Product(url, pt.title(page), pt.price(page), pt.rating(page), pt.is_deal(page), pt.deal_expiry_time(page))
 
 obj.details()
+
+db = Database("pricetracker.sqlite3")
