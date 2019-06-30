@@ -131,10 +131,13 @@ class Product:
 # TODO: evaluate if it is better to split database management into a standalone module (db.py?)
 class Database (object):
     '''
-    Database management
+    Database management.
     '''
 
     def __init__(self, db_file):
+        '''
+        Object constructor.
+        '''
         self.db = sqlite3.connect(db_file)
         self.db_file = db_file    # is it really useful?
         self.db_is_new = not os.path.exists(db_file)
