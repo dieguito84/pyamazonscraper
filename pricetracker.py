@@ -1,3 +1,4 @@
+import os
 import re
 import requests
 import sqlite3
@@ -135,7 +136,11 @@ class Database (object):
 
     def __init__(self, db_file):
         self.db = sqlite3.connect(db_file)
-        self.db_file = db_file
+        self.db_file = db_file    # is it really useful?
+        self.db_is_new = not os.path.exists(db_file)
+        if self.db_is_new:
+            pass
+            # instructions to create schema
 
 pt = PriceTracker()
 
