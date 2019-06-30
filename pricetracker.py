@@ -1,5 +1,6 @@
 import re
 import requests
+import sqlite3
 
 from bs4 import BeautifulSoup
 
@@ -124,6 +125,16 @@ class Product:
             print("La valutazione dell'articolo è " + self.rating)
         else:
             print("Non ci sono recensioni")
+
+
+class Database (object):
+    '''
+    Database management
+    '''
+
+    def __init__(self, db_file):
+        self.db = sqlite3.connect(db_file)
+        self.db_file = db_file
 
 pt = PriceTracker()
 
