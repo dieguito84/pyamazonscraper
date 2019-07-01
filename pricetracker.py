@@ -148,6 +148,12 @@ class Database (object):
     def create_table(self):
         pass
         # instructions to create table
+    
+    def disconnect(self):
+        '''
+        Disconnect from database.
+        '''
+        self.db.close()
 
 
 pt = PriceTracker()
