@@ -146,8 +146,11 @@ class Database (object):
             # execution of create_table method
     
     def create_table(self):
+        '''
+        Table creation.
+        '''
         pass
-        # instructions to create table
+        # instructions to create table "products"
     
     def disconnect(self):
         '''
