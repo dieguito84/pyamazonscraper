@@ -144,6 +144,10 @@ class Database (object):
         if self.db_is_new:
             pass
             # instructions to create schema
+    
+    def create_table(self):
+        pass
+        # instructions to create table
 
 
 pt = PriceTracker()
