@@ -143,7 +143,7 @@ class Database (object):
         self.db_file = db_file    # is it really useful?
         if self.db_is_new:
             pass
-            # instructions to create schema
+            # execution of create_table method
     
     def create_table(self):
         pass
