@@ -159,12 +159,12 @@ class Database (object):
             pass
             # execution of create_table method
     
-    def create_table(self):
+    def create_table(self, create_table_sql):
         '''
         Table creation.
         '''
-        pass
-        # instructions to create table "products"
+        self.cursor = self.db.cursor()
+        self.cursor.execute(create_table_sql)
     
     def disconnect(self):
         '''
