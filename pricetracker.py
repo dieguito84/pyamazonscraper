@@ -166,6 +166,13 @@ class Database (object):
         self.cursor = self.db.cursor()
         self.cursor.execute(create_table_sql)
     
+    def insert(self):
+        '''
+        Insert row into the table.
+        '''
+        pass
+        # code to insert new row
+    
     def disconnect(self):
         '''
         Disconnect from database.
