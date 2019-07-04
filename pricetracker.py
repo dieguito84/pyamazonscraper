@@ -184,3 +184,5 @@ obj = Product(url, pt.title(page), pt.price(page), pt.rating(page), pt.is_deal(p
 obj.details()
 
 db = Database("pricetracker.sqlite3")
+db.create_table(SQL_CREATE_PRODUCTS_TABLE)
+db.disconnect()
