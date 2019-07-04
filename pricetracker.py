@@ -156,8 +156,7 @@ class Database (object):
         self.db = sqlite3.connect(db_file)
         self.db_file = db_file    # is it really useful?
         if self.db_is_new:
-            pass
-            # execution of create_table method
+            self.create_table(SQL_CREATE_PRODUCTS_TABLE)
     
     def create_table(self, create_table_sql):
         '''
@@ -191,5 +190,4 @@ obj = Product(url, pt.title(page), pt.price(page), pt.rating(page), pt.is_deal(p
 obj.details()
 
 db = Database("pricetracker.sqlite3")
-db.create_table(SQL_CREATE_PRODUCTS_TABLE)
 db.disconnect()
