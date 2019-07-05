@@ -167,8 +167,10 @@ class Database (object):
     
     def select(self):
         '''
-        Show rows content.
+        Show row content.
         '''
+        pass
+        # code to show row content
     
     def insert(self):
         '''
@@ -176,6 +178,13 @@ class Database (object):
         '''
         pass
         # code to insert new row
+    
+    def update(self):
+        '''
+        Update row content.
+        '''
+        pass
+        # code to update row
     
     def disconnect(self):
         '''
