@@ -186,6 +186,13 @@ class Database (object):
         pass
         # code to update row
     
+    def delete(self):
+        '''
+        Delete row.
+        '''
+        pass
+        # code to delete row
+    
     def disconnect(self):
         '''
         Disconnect from database.
