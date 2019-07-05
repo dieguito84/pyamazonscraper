@@ -165,6 +165,11 @@ class Database (object):
         self.cursor = self.db.cursor()
         self.cursor.execute(create_table_sql)
     
+    def select(self):
+        '''
+        Show rows content.
+        '''
+    
     def insert(self):
         '''
         Insert row into the table.
