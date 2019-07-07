@@ -224,6 +224,8 @@ obj = Product(url, pt.title(page), pt.price(page), pt.rating(page), pt.is_deal(p
 
 obj.details()
 
+# TODO: check why is it possible to insert text value into float field (obj.price and obj.rating)
+# TODO: validate data type before insert into database fields
 db = Database("pricetracker.sqlite3")
 
 product = ("dieguito84", "ABCDE12345", obj.url, obj.title, obj.price, obj.rating, obj.is_deal, obj.deal_expiry_time, "2019-07-06", "4")
