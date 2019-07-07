@@ -172,12 +172,18 @@ class Database (object):
         pass
         # code to show row content
     
-    def insert(self):
+    def insert(self, product):
         '''
         Insert row into the table.
         '''
-        pass
-        # code to insert new row
+        insert_command = '''INSERT INTO products(username,asin,url,title,
+                            price,rating,is_deal,deal_expiry_time,
+                            last_check, price_diff)
+              VALUES(?,?,?,?,?,?,?,?,?,?)'''
+        self.cursor = self.db.cursor()
+        self.cursor.execute(insert_command, product)
+
+        return self.cursor.lastrowid
     
     def update(self):
         '''
