@@ -201,6 +201,12 @@ class Database (object):
         pass
         # code to delete row
     
+    def commit(self):
+        '''
+        Commit changes to database
+        '''
+        self.db.commit()
+    
     def disconnect(self):
         '''
         Disconnect from database.
