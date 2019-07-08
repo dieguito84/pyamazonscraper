@@ -178,8 +178,14 @@ class Database (object):
         '''
         Show all rows content.
         '''
-        pass
-        # code to show all rows content
+        select_all_command = '''SELECT * FROM products'''
+        self.cursor = self.db.cursor()
+        self.cursor.execute(select_all_command)
+
+        rows = self.cursor.fetchall()
+
+        for row in rows:
+            print(row)
     
     def insert(self, product):
         '''
@@ -237,8 +243,10 @@ obj.details()
 db = Database("pricetracker.sqlite3")
 
 product = ("dieguito84", "ABCDE12345", obj.url, obj.title, obj.price, obj.rating, obj.is_deal, obj.deal_expiry_time, "2019-07-06", "4")
-db.insert(product)
+#db.insert(product)
 
-db.commit()
+#db.commit()
+
+db.select_all()
 
 db.disconnect()
