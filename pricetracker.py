@@ -174,6 +174,13 @@ class Database (object):
         pass
         # code to show row content
     
+    def select_all(self):
+        '''
+        Show all rows content.
+        '''
+        pass
+        # code to show all rows content
+    
     def insert(self, product):
         '''
         Insert row into the table.
