@@ -171,6 +171,7 @@ class Database (object):
         '''
         Show row content.
         '''
+        # TODO: find a way to generalize select method (use it with different queries)
         pass
         # code to show row content
     
