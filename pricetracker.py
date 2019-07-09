@@ -25,6 +25,7 @@ SQL_CREATE_PRODUCTS_TABLE = '''CREATE TABLE IF NOT EXISTS products (
 
 # TODO: think the entire application with Telegram Bot integration in mind
 # TODO: use SQLite to store url to check, product details, users data for notifications
+
 # SQLite tables fields:
 # unique id (autoincrement, primary key) - int
 # user identifier (telegram nickname?) - varchar
@@ -38,9 +39,11 @@ SQL_CREATE_PRODUCTS_TABLE = '''CREATE TABLE IF NOT EXISTS products (
 # last check - int 0 if not present, datetime if present
 # price difference from last check - float
 
+# TODO: evaluate if it is better to create a table for each user instead of a single table of every products
+
 class PriceTracker:
     '''
-    Amazxon.it price tracker.
+    Amazon.it price tracker.
     '''
 
     def html(self, url, user_agent=USER_AGENT):
