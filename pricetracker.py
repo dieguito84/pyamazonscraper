@@ -251,7 +251,10 @@ db = Database("pricetracker.sqlite3")
 product = ("dieguito84", "ABCDE12345", obj.url, obj.title, obj.price, obj.rating, obj.is_deal, obj.deal_expiry_time, "2019-07-06", "4")
 #db.insert(product)
 
-#db.commit()
+product_update = ("2019-07-10", "1")
+db.update(product_update)
+
+db.commit()
 
 db.select_all()
 
