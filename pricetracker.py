@@ -208,6 +208,7 @@ class Database (object):
         '''
         Update row content.
         '''
+        # TODO: find a way to generalize update method (different fields and conditions)
         update_command = '''UPDATE products SET last_check = ?
                             WHERE id = ?'''
         self.cursor = self.db.cursor()
