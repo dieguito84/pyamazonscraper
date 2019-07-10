@@ -204,12 +204,14 @@ class Database (object):
 
         return self.cursor.lastrowid
     
-    def update(self):
+    def update(self, product):
         '''
         Update row content.
         '''
-        pass
-        # code to update row
+        update_command = '''UPDATE products SET last_check = ?
+                            WHERE id = ?'''
+        self.cursor = self.db.cursor()
+        self.cursor.execute(update_command, product)
     
     def delete(self):
         '''
