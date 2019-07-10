@@ -39,7 +39,7 @@ SQL_CREATE_PRODUCTS_TABLE = '''CREATE TABLE IF NOT EXISTS products (
 # last check - int 0 if not present, datetime if present
 # price difference from last check - float
 
-# TODO: evaluate if it is better to create a table for each user instead of a single table of every products
+# TODO: evaluate if it is better to create a table for each user instead of a single table for every user and product
 
 class PriceTracker:
     '''
