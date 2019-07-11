@@ -214,12 +214,13 @@ class Database (object):
         self.cursor = self.db.cursor()
         self.cursor.execute(update_command, product)
     
-    def delete(self):
+    def delete(self, product):
         '''
         Delete row.
         '''
-        pass
-        # code to delete row
+        delete_command = '''DELETE FROM products WHERE id = ?'''
+        self.cursor = self.db.cursor()
+        self.cursor.execute(delete_command, product)
     
     def commit(self):
         '''
