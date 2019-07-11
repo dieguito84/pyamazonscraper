@@ -40,6 +40,7 @@ SQL_CREATE_PRODUCTS_TABLE = '''CREATE TABLE IF NOT EXISTS products (
 # price difference from last check - float
 
 # TODO: evaluate if it is better to create a table for each user instead of a single table for every user and product
+# TODO: create a method of Database class to group together db.cursor, cursor.execute and db.commit
 
 class PriceTracker:
     '''
@@ -182,6 +183,7 @@ class Database (object):
         '''
         Show all rows content.
         '''
+        # TODO: find a way to generalize select_all method (use it on different tables)
         select_all_command = '''SELECT * FROM products'''
         self.cursor = self.db.cursor()
         self.cursor.execute(select_all_command)
@@ -195,6 +197,7 @@ class Database (object):
         '''
         Insert row into the table.
         '''
+        # TODO: find a way to generalize insert method (use it on different tables and fields)
         insert_command = '''INSERT INTO products(username,asin,url,title,
                             price,rating,is_deal,deal_expiry_time,
                             last_check, price_diff)
@@ -208,7 +211,7 @@ class Database (object):
         '''
         Update row content.
         '''
-        # TODO: find a way to generalize update method (different fields and conditions)
+        # TODO: find a way to generalize update method (use it on different tables and fields and with conditions)
         update_command = '''UPDATE products SET last_check = ?
                             WHERE id = ?'''
         self.cursor = self.db.cursor()
@@ -218,6 +221,7 @@ class Database (object):
         '''
         Delete row.
         '''
+        # TODO: find a way to generalize delete method (use it on different tables with different conditions)
         delete_command = '''DELETE FROM products WHERE id = ?'''
         self.cursor = self.db.cursor()
         self.cursor.execute(delete_command, product)
