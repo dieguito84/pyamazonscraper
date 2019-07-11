@@ -166,10 +166,17 @@ class Database (object):
     
     def create_table(self, create_table_sql):
         '''
-        Table creation.
+        Create table.
         '''
         self.cursor = self.db.cursor()
         self.cursor.execute(create_table_sql)
+    
+    def drop_table(self):
+        '''
+        Delete table.
+        '''
+        pass
+        # code to delete table
     
     def select(self):
         '''
