@@ -254,7 +254,10 @@ product = ("dieguito84", "ABCDE12345", obj.url, obj.title, obj.price, obj.rating
 #db.insert(product)
 
 product_update = ("2019-07-10", "1")
-db.update(product_update)
+#db.update(product_update)
+
+product_delete = ("5")
+db.delete(product_delete)
 
 db.commit()
 
