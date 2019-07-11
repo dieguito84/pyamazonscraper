@@ -226,6 +226,13 @@ class Database (object):
         self.cursor = self.db.cursor()
         self.cursor.execute(delete_command, product)
     
+    def delete_all(self):
+        '''
+        Delete all rows.
+        '''
+        pass
+        # code to delete all rows
+    
     def commit(self):
         '''
         Commit changes to database
