@@ -175,8 +175,9 @@ class Database (object):
         '''
         Delete table.
         '''
-        pass
-        # code to delete table
+        drop_table_command = '''DROP TABLE products'''
+        self.cursor = self.db.cursor()
+        self.cursor.execute(drop_table_command)
     
     def select(self):
         '''
