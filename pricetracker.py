@@ -168,6 +168,7 @@ class Database (object):
         '''
         Create table.
         '''
+        # TODO: find a way to generalize create_table method (use it with different tables)
         self.cursor = self.db.cursor()
         self.cursor.execute(create_table_sql)
     
@@ -175,6 +176,7 @@ class Database (object):
         '''
         Delete table.
         '''
+        # TODO: find a way to generalize drop_table method (use it with different tables)
         drop_table_command = '''DROP TABLE products'''
         self.cursor = self.db.cursor()
         self.cursor.execute(drop_table_command)
