@@ -237,6 +237,7 @@ class Database (object):
         '''
         Delete all rows.
         '''
+        # TODO: find a way to generalize delete_all method (use it on different tables)
         delete_all_command = '''DELETE FROM products'''
         self.cursor = self.db.cursor()
         self.cursor.execute(delete_all_command)
@@ -265,8 +266,9 @@ obj = Product(url, pt.title(page), pt.price(page), pt.rating(page), pt.is_deal(p
 obj.details()
 
 # TODO: check why is it possible to insert text value into float field (obj.price and obj.rating)
-# TODO: validate data type before insert into database fields
+# TODO: validate and modify data type before insert into database fields (price and rating )
 # TODO: create a function to get product's ASIN code (put it inside PriceTracker class and then use it in Product class)
+# TODO: create a function to get price difference from last check (it should go in PriceTracker class)
 db = Database("pricetracker.sqlite3")
 
 product = ("dieguito84", "ABCDE12345", obj.url, obj.title, obj.price, obj.rating, obj.is_deal, obj.deal_expiry_time, "2019-07-06", "4")
