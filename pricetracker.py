@@ -161,6 +161,8 @@ class Database (object):
         self.db_is_new = not os.path.exists(db_file)
         self.db = sqlite3.connect(db_file)
         self.db_file = db_file    # is it really useful?
+        # TODO: evaluate if it is better to always execute create_table method and rely on SQL query (IF NOT EXISTS)
+        # at the moment if I drop the table it will not be automatically created again, untill I delete pricetracker.sqlite3 from disk
         if self.db_is_new:
             self.create_table(SQL_CREATE_PRODUCTS_TABLE)
     
