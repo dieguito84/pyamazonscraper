@@ -237,8 +237,9 @@ class Database (object):
         '''
         Delete all rows.
         '''
-        pass
-        # code to delete all rows
+        delete_all_command = '''DELETE FROM products'''
+        self.cursor = self.db.cursor()
+        self.cursor.execute(delete_all_command)
     
     def commit(self):
         '''
