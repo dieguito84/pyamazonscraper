@@ -276,7 +276,9 @@ product_update = ("2019-07-10", "1")
 #db.update(product_update)
 
 product_delete = ("5")
-db.delete(product_delete)
+#db.delete(product_delete)
+
+db.delete_all()
 
 db.commit()
 
