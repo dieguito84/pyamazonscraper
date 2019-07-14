@@ -24,7 +24,6 @@ SQL_CREATE_PRODUCTS_TABLE = '''CREATE TABLE IF NOT EXISTS products (
 # I will use BeautifulSoup over requests-html because of performance and compatibility with Python 3.5
 
 # TODO: think the entire application with Telegram Bot integration in mind
-# TODO: use SQLite to store url to check, product details, users data for notifications
 
 # SQLite tables fields:
 # unique id (autoincrement, primary key) - int
@@ -270,7 +269,6 @@ obj = Product(url, pt.title(page), pt.price(page), pt.rating(page), pt.is_deal(p
 
 obj.details()
 
-# TODO: check why is it possible to insert text value into float field (obj.price and obj.rating)
 # TODO: validate and modify data type before insert into database fields (price and rating )
 # TODO: create a function to get product's ASIN code (put it inside PriceTracker class and then use it in Product class)
 # TODO: create a function to get price difference from last check (it should go in PriceTracker class)
