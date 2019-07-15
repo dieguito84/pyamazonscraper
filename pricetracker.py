@@ -41,6 +41,7 @@ SQL_CREATE_PRODUCTS_TABLE = '''CREATE TABLE IF NOT EXISTS products (
 # TODO: evaluate if it is better to create a table for each user instead of a single table for every user and product
 # TODO: create a method of Database class to group together db.cursor, cursor.execute and db.commit
 
+# TODO: maybe is it better to call this class "Parser"?
 class PriceTracker:
     '''
     Amazon.it price tracker.
@@ -264,6 +265,9 @@ pt = PriceTracker()
 page = pt.html("https://www.amazon.it/Rowenta-Smart-Force-Essential-Aspirapolvere/dp/B07BCNBZX8/ref=gbps_tit_s-5_1669_45c55016?smid=A11IL2PNWYJU7H&pf_rd_p=55660c59-f0e0-412d-84b8-63a94ff41669&pf_rd_s=slot-5&pf_rd_t=701&pf_rd_i=gb_main&pf_rd_m=A11IL2PNWYJU7H&pf_rd_r=9APEYZYZMMXHPN5SY7ZQ")
 
 url = "https://www.amazon.it/Rowenta-Smart-Force-Essential-Aspirapolvere/dp/B07BCNBZX8/ref=gbps_tit_s-5_1669_45c55016?smid=A11IL2PNWYJU7H&pf_rd_p=55660c59-f0e0-412d-84b8-63a94ff41669&pf_rd_s=slot-5&pf_rd_t=701&pf_rd_i=gb_main&pf_rd_m=A11IL2PNWYJU7H&pf_rd_r=9APEYZYZMMXHPN5SY7ZQ"
+
+search = re.search(r'(?<=/)B[A-Z0-9]{9}', url)
+print(search.group(0))
 
 obj = Product(url, pt.title(page), pt.price(page), pt.rating(page), pt.is_deal(page), pt.deal_expiry_time(page))
 
