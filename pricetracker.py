@@ -128,11 +128,12 @@ class Product:
     Basic product details.
     '''
 
-    def __init__(self, url, title, price, rating, is_deal=False, deal_expiry_time=None):
+    def __init__(self, url, asin, title, price, rating, is_deal=False, deal_expiry_time=None):
         '''
         Object constructor.
         '''
         self.url = url
+        self.asin = asin
         self.title = title
         self.price = price
         self.rating = rating
@@ -144,6 +145,7 @@ class Product:
         Print product details.
         '''
         print("L'URL dell'articolo è " + self.url)
+        print("Il codice ASIN dell'articolo è " + self.asin)
         print("Il titolo dell'articolo è " + self.title)
         if self.is_deal == True:
             if self.deal_expiry_time != None:
