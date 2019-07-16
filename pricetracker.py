@@ -86,6 +86,7 @@ class PriceTracker:
         except AttributeError:
             self._price = html.find(id="priceblock_dealprice").get_text()    # deal price
         
+        # TODO: should I transform it in float before returning it?
         return self._price[:-2]    # to remove " €" from price
     
     def rating(self, html):
@@ -98,7 +99,11 @@ class PriceTracker:
         except AttributeError:
             self._rating = None    # without value (there are not reviews)
         
-        return self._rating
+        if self._rating is not None:
+            # TODO: should I transform it in float before returning it?
+            return self._rating[:3]    # return only first three characters of the rating
+        else:
+            return self._rating
     
     def is_deal(self, html):
         '''
