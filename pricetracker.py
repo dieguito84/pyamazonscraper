@@ -284,7 +284,6 @@ obj = Product(url, pt.asin(url), pt.title(page), pt.price(page), pt.rating(page)
 obj.details()
 
 # TODO: validate and modify data type before insert into database fields (price and rating )
-# TODO: create a function to get product's ASIN code (put it inside PriceTracker class and then use it in Product class)
 # TODO: create a function to get price difference from last check (it should go in PriceTracker class)
 db = Database("pricetracker.sqlite3")
 
