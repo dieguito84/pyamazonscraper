@@ -86,7 +86,7 @@ class PriceTracker:
         except AttributeError:
             self._price = html.find(id="priceblock_dealprice").get_text()    # deal price
         
-        return self._price
+        return self._price[:-2]    # to remove " €" from price
     
     def rating(self, html):
         '''
