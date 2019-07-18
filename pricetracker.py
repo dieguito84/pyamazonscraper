@@ -101,7 +101,7 @@ class PriceTracker:
         
         if self._rating is not None:
             # TODO: should I transform it in float before returning it?
-            return self._rating[:3]    # return only first three characters of the rating
+            return self._rating[:3]    # return only first three characters of the rating (example: 4.0)
         else:
             return self._rating
     
@@ -288,7 +288,6 @@ obj = Product(url, pt.asin(url), pt.title(page), pt.price(page), pt.rating(page)
 
 obj.details()
 
-# TODO: validate and modify data type before insert into database fields (price and rating )
 # TODO: create a function to get price difference from last check (it should go in PriceTracker class)
 db = Database("pricetracker.sqlite3")
 
