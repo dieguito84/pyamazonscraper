@@ -288,6 +288,7 @@ obj = Product(url, pt.asin(url), pt.title(page), pt.price(page), pt.rating(page)
 
 obj.details()
 
+# TODO: implement the insert of current date and time when script get executed into last_check database field
 # TODO: create a function to get price difference from last check (it should go in PriceTracker class)
 db = Database("pricetracker.sqlite3")
 
