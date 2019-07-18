@@ -87,7 +87,7 @@ class PriceTracker:
             self._price = html.find(id="priceblock_dealprice").get_text()    # deal price
         
         # TODO: should I transform it in float before returning it?
-        return self._price[:-2]    # to remove " €" from price
+        return self._price[:-2].replace(",", ".")    # to remove " €" and replace "," with "." from price
     
     def rating(self, html):
         '''
