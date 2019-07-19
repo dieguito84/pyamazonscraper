@@ -127,6 +127,13 @@ class PriceTracker:
         else:    # if is not a deal just return None
             return None
     
+    def price_diff(self):
+        '''
+        Get price difference from last check.
+        '''
+        pass
+        # code to get price difference from last check
+    
 
 class Product:
     '''
