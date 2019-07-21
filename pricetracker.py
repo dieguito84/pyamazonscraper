@@ -16,9 +16,9 @@ SQL_CREATE_PRODUCTS_TABLE = '''CREATE TABLE IF NOT EXISTS products (
                                 title varchar NOT NULL,
                                 price float NOT NULL,
                                 rating float,
+                                last_check datetime,
                                 is_deal bolean NOT NULL,
                                 deal_expiry_time datetime,
-                                last_check datetime,
                                 price_diff float
                                 );'''
 
@@ -311,7 +311,7 @@ obj.details()
 # TODO: create a function to get price difference from last check (it should go in PriceTracker class)
 db = Database("pricetracker.sqlite3")
 
-product = ("dieguito84", obj.asin, obj.url, obj.title, obj.price, obj.rating, obj.is_deal, obj.deal_expiry_time, obj.last_check, "4")
+product = ("dieguito84", obj.asin, obj.url, obj.title, obj.price, obj.rating, obj.last_check, obj.is_deal, obj.deal_expiry_time, "4")
 #db.insert(product)
 
 product_update = ("2019-07-10", "1")
