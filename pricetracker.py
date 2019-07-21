@@ -247,8 +247,8 @@ class Database (object):
         '''
         # TODO: find a way to generalize insert method (use it on different tables and fields)
         insert_command = '''INSERT INTO products(username,asin,url,title,
-                            price,rating,is_deal,deal_expiry_time,
-                            last_check, price_diff)
+                            price,rating,last_check,is_deal,deal_expiry_time,
+                            price_diff)
               VALUES(?,?,?,?,?,?,?,?,?,?)'''
         self.cursor = self.db.cursor()
         self.cursor.execute(insert_command, product)
