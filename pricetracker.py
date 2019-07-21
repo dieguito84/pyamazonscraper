@@ -194,7 +194,7 @@ class Database (object):
         '''
         Object constructor.
         '''
-        self.db_is_new = not os.path.exists(db_file)    # is it really useful?
+        self.db_is_new = not os.path.exists(db_file)    # is it really useful anymore?
         self.db = sqlite3.connect(db_file)
         self.db_file = db_file    # is it really useful?
         
