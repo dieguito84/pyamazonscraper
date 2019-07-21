@@ -106,6 +106,14 @@ class PriceTracker:
         else:
             return self._rating
     
+    def last_check(self):
+        '''
+        Get current date and time.
+        '''
+        self._currentdatetime = strftime("%Y-%m-%d %H:%M:%S")
+
+        return self._currentdatetime
+    
     def is_deal(self, html):
         '''
         Check if the product is a deal.
@@ -127,14 +135,6 @@ class PriceTracker:
                 return None
         else:    # if is not a deal just return None
             return None
-    
-    def last_check(self):
-        '''
-        Get current date and time.
-        '''
-        self._currentdatetime = strftime("%Y-%m-%d %H:%M:%S")
-
-        return self._currentdatetime
 
     def price_diff(self):
         '''
@@ -311,7 +311,7 @@ obj.details()
 # TODO: create a function to get price difference from last check (it should go in PriceTracker class)
 db = Database("pricetracker.sqlite3")
 
-product = ("dieguito84", obj.asin, obj.url, obj.title, obj.price, obj.rating, obj.is_deal, obj.deal_expiry_time, "2019-07-06", "4")
+product = ("dieguito84", obj.asin, obj.url, obj.title, obj.price, obj.rating, obj.is_deal, obj.deal_expiry_time, obj.last_check, "4")
 #db.insert(product)
 
 product_update = ("2019-07-10", "1")
