@@ -110,7 +110,7 @@ class PriceTracker:
         '''
         Get current date and time.
         '''
-        self._currentdatetime = strftime("%Y-%m-%d %H:%M:%S")
+        self._currentdatetime = strftime("%Y-%m-%d %H:%M:%S")    # format YYYY-MM-DD HH:MM:SS
 
         return self._currentdatetime
     
