@@ -310,7 +310,7 @@ db = Database("pricetracker.sqlite3")
 product = ("dieguito84", obj.asin, obj.url, obj.title, obj.price, obj.rating, obj.last_check, obj.is_deal, obj.deal_expiry_time, "4")
 #db.insert(product)
 
-product_update = ("2019-07-10", "1")
+product_update = (obj.last_check, "1")
 #db.update(product_update)
 
 product_delete = ("5")
