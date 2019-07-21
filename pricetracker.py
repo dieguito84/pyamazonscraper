@@ -4,6 +4,7 @@ import requests
 import sqlite3
 
 from bs4 import BeautifulSoup
+from time import strftime
 
 USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:67.0) Gecko/20100101 Firefox/67.0"
 
@@ -127,6 +128,14 @@ class PriceTracker:
         else:    # if is not a deal just return None
             return None
     
+    def last_check(self):
+        '''
+        Get current date and time.
+        '''
+        self._currentdatetime = strftime("%Y-%m-%d %H:%M:%S")
+
+        return self._currentdatetime
+
     def price_diff(self):
         '''
         Get price difference from last check.
