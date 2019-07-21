@@ -149,7 +149,7 @@ class Product:
     Basic product details.
     '''
 
-    def __init__(self, url, asin, title, price, rating, is_deal=False, deal_expiry_time=None):
+    def __init__(self, url, asin, title, price, rating, is_deal=False, deal_expiry_time=None, last_check):
         '''
         Object constructor.
         '''
@@ -160,6 +160,7 @@ class Product:
         self.rating = rating
         self.is_deal = is_deal
         self.deal_expiry_time = deal_expiry_time
+        self.last_check = last_check
     
     def details(self):
         '''
@@ -180,6 +181,7 @@ class Product:
             print("La valutazione dell'articolo è " + self.rating)
         else:
             print("Non ci sono recensioni")
+        print("L'ultimo check è stato eseguito il " + self.last_check)
 
 
 # TODO: evaluate if it is better to split database management into a standalone module (db.py?)
