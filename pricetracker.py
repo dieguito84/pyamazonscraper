@@ -149,7 +149,7 @@ class Product:
     Basic product details.
     '''
 
-    def __init__(self, url, asin, title, price, rating, is_deal=False, deal_expiry_time=None, last_check):
+    def __init__(self, url, asin, title, price, rating, last_check, is_deal=False, deal_expiry_time=None):
         '''
         Object constructor.
         '''
@@ -158,9 +158,9 @@ class Product:
         self.title = title
         self.price = price
         self.rating = rating
+        self.last_check = last_check
         self.is_deal = is_deal
         self.deal_expiry_time = deal_expiry_time
-        self.last_check = last_check
     
     def details(self):
         '''
@@ -302,7 +302,7 @@ page = pt.html("https://www.amazon.it/Rowenta-Smart-Force-Essential-Aspirapolver
 
 url = "https://www.amazon.it/Rowenta-Smart-Force-Essential-Aspirapolvere/dp/B07BCNBZX8/ref=gbps_tit_s-5_1669_45c55016?smid=A11IL2PNWYJU7H&pf_rd_p=55660c59-f0e0-412d-84b8-63a94ff41669&pf_rd_s=slot-5&pf_rd_t=701&pf_rd_i=gb_main&pf_rd_m=A11IL2PNWYJU7H&pf_rd_r=9APEYZYZMMXHPN5SY7ZQ"
 
-obj = Product(url, pt.asin(url), pt.title(page), pt.price(page), pt.rating(page), pt.is_deal(page), pt.deal_expiry_time(page))
+obj = Product(url, pt.asin(url), pt.title(page), pt.price(page), pt.rating(page), pt.is_deal(page), pt.deal_expiry_time(page), pt.last_check)
 
 obj.details()
 
