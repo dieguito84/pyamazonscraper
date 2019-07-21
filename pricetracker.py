@@ -325,3 +325,5 @@ product_delete = ("5")
 db.select_all()
 
 db.disconnect()
+
+# TODO: in the main execution function if asin already exists in the table then use update, else use insert
