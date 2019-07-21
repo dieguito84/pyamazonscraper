@@ -16,7 +16,7 @@ SQL_CREATE_PRODUCTS_TABLE = '''CREATE TABLE IF NOT EXISTS products (
                                 title varchar NOT NULL,
                                 price float NOT NULL,
                                 rating float,
-                                last_check datetime,
+                                last_check datetime NOT NULL,
                                 is_deal bolean NOT NULL,
                                 deal_expiry_time datetime,
                                 price_diff float
@@ -34,9 +34,9 @@ SQL_CREATE_PRODUCTS_TABLE = '''CREATE TABLE IF NOT EXISTS products (
 # product title - varchar
 # product price - float
 # product rating - float if present, int 0 if not present
+# last check - datetime
 # is deal - int 0 = no, int 1 = yes
 # deal expiry time - int 0 if not present, datetime if present
-# last check - int 0 if not present, datetime if present
 # price difference from last check - float
 
 # TODO: evaluate if it is better to create a table for each user instead of a single table for every user and product
