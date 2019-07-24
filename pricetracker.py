@@ -207,6 +207,7 @@ class Database (object):
         pass
         # code to read content from database
         # group together db.cursor and cursor.execute
+        # TODO: manage query with and without values
     
     def write(self):
         '''
@@ -215,6 +216,7 @@ class Database (object):
         pass
         # code to write content to database
         # group together db.cursor, cursor.execute and db.commit
+        # TODO: manage query with and without values
     
     def create_table(self, create_table_sql):
         '''
