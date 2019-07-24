@@ -221,6 +221,7 @@ class Database (object):
         Create table.
         '''
         # TODO: find a way to generalize create_table method (use it with different tables)
+        # TODO: replace self.cursor and self.cursor.execute with write method
         self.cursor = self.db.cursor()
         self.cursor.execute(create_table_sql)
     
@@ -230,6 +231,7 @@ class Database (object):
         '''
         # TODO: find a way to generalize drop_table method (use it with different tables)
         drop_table_command = '''DROP TABLE products'''
+        # TODO: replace self.cursor and self.cursor.execute with write method
         self.cursor = self.db.cursor()
         self.cursor.execute(drop_table_command)
     
@@ -238,6 +240,7 @@ class Database (object):
         Show row content.
         '''
         # TODO: find a way to generalize select method (use it with different queries)
+        # TODO: do not use self.cursor and self.cursor.execute but use read method
         pass
         # code to show row content
     
@@ -247,6 +250,7 @@ class Database (object):
         '''
         # TODO: find a way to generalize select_all method (use it on different tables)
         select_all_command = '''SELECT * FROM products'''
+        # TODO: replace self.cursor and self.cursor.execute with read method
         self.cursor = self.db.cursor()
         self.cursor.execute(select_all_command)
 
@@ -264,6 +268,7 @@ class Database (object):
                             price,rating,last_check,is_deal,deal_expiry_time,
                             price_diff)
               VALUES(?,?,?,?,?,?,?,?,?,?)'''
+        # TODO: replace self.cursor and self.cursor.execute with write method
         self.cursor = self.db.cursor()
         self.cursor.execute(insert_command, product)
 
@@ -276,6 +281,7 @@ class Database (object):
         # TODO: find a way to generalize update method (use it on different tables and fields and with conditions)
         update_command = '''UPDATE products SET last_check = ?
                             WHERE id = ?'''
+        # TODO: replace self.cursor and self.cursor.execute with write method
         self.cursor = self.db.cursor()
         self.cursor.execute(update_command, product)
     
@@ -285,6 +291,7 @@ class Database (object):
         '''
         # TODO: find a way to generalize delete method (use it on different tables with different conditions)
         delete_command = '''DELETE FROM products WHERE id = ?'''
+        # TODO: replace self.cursor and self.cursor.execute with write method
         self.cursor = self.db.cursor()
         self.cursor.execute(delete_command, product)
     
@@ -294,6 +301,7 @@ class Database (object):
         '''
         # TODO: find a way to generalize delete_all method (use it on different tables)
         delete_all_command = '''DELETE FROM products'''
+        # TODO: replace self.cursor and self.cursor.execute with write method
         self.cursor = self.db.cursor()
         self.cursor.execute(delete_all_command)
     
