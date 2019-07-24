@@ -200,6 +200,14 @@ class Database (object):
         
         self.create_table(SQL_CREATE_PRODUCTS_TABLE)
     
+    def read(self):
+        '''
+        Read database content.
+        '''
+        pass
+        # code to return database content
+        # group together db.cursor and cursor.execute
+    
     def create_table(self, create_table_sql):
         '''
         Create table.
