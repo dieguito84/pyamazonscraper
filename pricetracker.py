@@ -202,10 +202,10 @@ class Database (object):
     
     def read(self):
         '''
-        Read database content.
+        Read content from database.
         '''
         pass
-        # code to return database content
+        # code to read content from database
         # group together db.cursor and cursor.execute
     
     def write(self):
