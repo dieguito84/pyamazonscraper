@@ -208,6 +208,14 @@ class Database (object):
         # code to return database content
         # group together db.cursor and cursor.execute
     
+    def write(self):
+        '''
+        Write content to database.
+        '''
+        pass
+        # code to write content to database
+        # group together db.cursor, cursor.execute and db.commit
+    
     def create_table(self, create_table_sql):
         '''
         Create table.
