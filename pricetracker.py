@@ -260,6 +260,7 @@ class Database (object):
         for row in rows:
             print(row)
         # TODO: evalutate to insert for loop into read method
+        # maybe in the final version there is no need to print results here
     
     def insert(self, product):
         '''
