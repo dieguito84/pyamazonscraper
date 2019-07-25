@@ -255,9 +255,11 @@ class Database (object):
         self.read(select_all_command)
 
         rows = self.cursor.fetchall()
+        # TODO: evaluate to insert self.cursor.fetchall into read method
 
         for row in rows:
             print(row)
+        # TODO: evalutate to insert for loop into read method
     
     def insert(self, product):
         '''
