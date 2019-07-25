@@ -200,13 +200,12 @@ class Database (object):
         
         self.create_table(SQL_CREATE_PRODUCTS_TABLE)
     
-    def read(self):
+    def read(self, command):
         '''
         Read content from database.
         '''
-        pass
-        # code to read content from database
-        # group together db.cursor and cursor.execute
+        self.cursor = self.db.cursor()
+        self.cursor.execute(command)
         # TODO: manage query with and without values
     
     def write(self):
@@ -252,9 +251,8 @@ class Database (object):
         '''
         # TODO: find a way to generalize select_all method (use it on different tables)
         select_all_command = '''SELECT * FROM products'''
-        # TODO: replace self.cursor and self.cursor.execute with read method
-        self.cursor = self.db.cursor()
-        self.cursor.execute(select_all_command)
+       
+        self.read(select_all_command)
 
         rows = self.cursor.fetchall()
 
