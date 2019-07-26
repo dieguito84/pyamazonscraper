@@ -213,7 +213,7 @@ class Database (object):
         Write content to database.
         '''
         self.cursor = self.db.cursor()
-        if values:
+        if values is not None:
             self.cursor.execute(command, values)
         else:
             self.cursor.execute(command)
