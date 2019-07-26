@@ -266,7 +266,7 @@ class Database (object):
         # TODO: evalutate to insert for loop into read method
         # maybe in the final version there is no need to print results here
     
-    def insert(self, product):
+    def insert(self, product):    # TODO: rename product in values?
         '''
         Insert row into the table.
         '''
@@ -276,7 +276,7 @@ class Database (object):
                             price_diff)
               VALUES(?,?,?,?,?,?,?,?,?,?)'''
         # TODO: replace self.cursor and self.cursor.execute with write method
-        self.write(insert_command, product)
+        self.write(insert_command, product)    # TODO: rename product in values?
 
         return self.cursor.lastrowid
     
