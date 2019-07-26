@@ -208,13 +208,17 @@ class Database (object):
         self.cursor.execute(command)
         # TODO: manage query with and without values
     
-    def write(self):
+    def write(self, command, values=None):
         '''
         Write content to database.
         '''
-        pass
-        # code to write content to database
-        # group together db.cursor, cursor.execute and db.commit
+        self.cursor = self.db.cursor()
+        if values:
+            self.cursor.execute(command, values)
+        else:
+            self.cursor.execute(command)
+
+        self.db.commit()
         # TODO: manage query with and without values
     
     def create_table(self, create_table_sql):
