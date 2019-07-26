@@ -276,8 +276,7 @@ class Database (object):
                             price_diff)
               VALUES(?,?,?,?,?,?,?,?,?,?)'''
         # TODO: replace self.cursor and self.cursor.execute with write method
-        self.cursor = self.db.cursor()
-        self.cursor.execute(insert_command, product)
+        self.write(insert_command, product)
 
         return self.cursor.lastrowid
     
