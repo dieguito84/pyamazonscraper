@@ -226,9 +226,8 @@ class Database (object):
         Create table.
         '''
         # TODO: find a way to generalize create_table method (use it with different tables)
-        # TODO: replace self.cursor and self.cursor.execute with write method
-        self.cursor = self.db.cursor()
-        self.cursor.execute(create_table_sql)
+        
+        self.write(create_table_sql)
     
     def drop_table(self):    # TODO: rename product in values?
         '''
