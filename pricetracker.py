@@ -275,6 +275,7 @@ class Database (object):
                             price,rating,last_check,is_deal,deal_expiry_time,
                             price_diff)
               VALUES(?,?,?,?,?,?,?,?,?,?)'''
+        
         # TODO: replace self.cursor and self.cursor.execute with write method
         self.write(insert_command, product)    # TODO: rename product in values?
 
@@ -307,10 +308,9 @@ class Database (object):
         '''
         # TODO: find a way to generalize delete_all method (use it on different tables)
         delete_all_command = '''DELETE FROM products'''
-        # TODO: replace self.cursor and self.cursor.execute with write method
-        self.cursor = self.db.cursor()
-        self.cursor.execute(delete_all_command)
-    
+
+        self.write(delete_all_command)
+
     def commit(self):
         '''
         Commit changes to database
