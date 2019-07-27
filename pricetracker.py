@@ -280,16 +280,15 @@ class Database (object):
 
         return self.cursor.lastrowid
     
-    def update(self, product):
+    def update(self, product):    # TODO: rename product in values?
         '''
         Update row content.
         '''
         # TODO: find a way to generalize update method (use it on different tables and fields and with conditions)
         update_command = '''UPDATE products SET last_check = ?
                             WHERE id = ?'''
-        # TODO: replace self.cursor and self.cursor.execute with write method
-        self.cursor = self.db.cursor()
-        self.cursor.execute(update_command, product)
+        
+        self.write(update_command, product)    # TODO: rename product in values?
     
     def delete(self, product):    # TODO: rename product in values?
         '''
