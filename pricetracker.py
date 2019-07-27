@@ -230,15 +230,14 @@ class Database (object):
         self.cursor = self.db.cursor()
         self.cursor.execute(create_table_sql)
     
-    def drop_table(self):
+    def drop_table(self):    # TODO: rename product in values?
         '''
         Delete table.
         '''
         # TODO: find a way to generalize drop_table method (use it with different tables)
         drop_table_command = '''DROP TABLE products'''
-        # TODO: replace self.cursor and self.cursor.execute with write method
-        self.cursor = self.db.cursor()
-        self.cursor.execute(drop_table_command)
+        
+        self.write(drop_table_command)    # TODO: rename product in values?
     
     def select(self):
         '''
