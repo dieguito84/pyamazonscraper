@@ -276,7 +276,6 @@ class Database (object):
                             price_diff)
               VALUES(?,?,?,?,?,?,?,?,?,?)'''
         
-        # TODO: replace self.cursor and self.cursor.execute with write method
         self.write(insert_command, product)    # TODO: rename product in values?
 
         return self.cursor.lastrowid
@@ -292,15 +291,14 @@ class Database (object):
         self.cursor = self.db.cursor()
         self.cursor.execute(update_command, product)
     
-    def delete(self, product):
+    def delete(self, product):    # TODO: rename product in values?
         '''
         Delete row.
         '''
         # TODO: find a way to generalize delete method (use it on different tables with different conditions)
         delete_command = '''DELETE FROM products WHERE id = ?'''
-        # TODO: replace self.cursor and self.cursor.execute with write method
-        self.cursor = self.db.cursor()
-        self.cursor.execute(delete_command, product)
+        
+        self.write(delete_command, product)    # TODO: rename product in values?
     
     def delete_all(self):
         '''
