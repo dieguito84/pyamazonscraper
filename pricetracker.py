@@ -221,7 +221,7 @@ class Database (object):
         self.db.commit()
         # TODO: manage query with and without values
     
-    def create_table(self, create_table_sql):
+    def create_table(self):
         '''
         Create table.
         '''
