@@ -226,8 +226,21 @@ class Database (object):
         Create table.
         '''
         # TODO: find a way to generalize create_table method (use it with different tables)
+        create_table_command = '''CREATE TABLE IF NOT EXISTS products (
+                                id integer PRIMARY KEY AUTOINCREMENT NOT NULL,
+                                username varchar NOT NULL,
+                                asin varchar NOT NULL,
+                                url varchar NOT NULL,
+                                title varchar NOT NULL,
+                                price float NOT NULL,
+                                rating float,
+                                last_check datetime NOT NULL,
+                                is_deal bolean NOT NULL,
+                                deal_expiry_time datetime,
+                                price_diff float
+                                );'''
         
-        self.write(create_table_sql)
+        self.write(create_table_command)
     
     def drop_table(self):    # TODO: rename product in values?
         '''
