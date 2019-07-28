@@ -198,7 +198,7 @@ class Database (object):
         self.db = sqlite3.connect(db_file)
         self.db_file = db_file    # is it really useful?
         
-        self.create_table(SQL_CREATE_PRODUCTS_TABLE)
+        self.create_table()
     
     def read(self, command):
         '''
