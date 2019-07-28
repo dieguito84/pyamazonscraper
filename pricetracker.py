@@ -8,20 +8,6 @@ from time import strftime
 
 USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:67.0) Gecko/20100101 Firefox/67.0"
 
-SQL_CREATE_PRODUCTS_TABLE = '''CREATE TABLE IF NOT EXISTS products (
-                                id integer PRIMARY KEY AUTOINCREMENT NOT NULL,
-                                username varchar NOT NULL,
-                                asin varchar NOT NULL,
-                                url varchar NOT NULL,
-                                title varchar NOT NULL,
-                                price float NOT NULL,
-                                rating float,
-                                last_check datetime NOT NULL,
-                                is_deal bolean NOT NULL,
-                                deal_expiry_time datetime,
-                                price_diff float
-                                );'''
-
 # I will use BeautifulSoup over requests-html because of performance and compatibility with Python 3.5
 
 # TODO: think the entire application with Telegram Bot integration in mind
