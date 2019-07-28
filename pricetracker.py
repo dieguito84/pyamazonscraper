@@ -237,14 +237,22 @@ class Database (object):
         
         self.write(drop_table_command)
     
-    def select(self):
+    def select(self, product):
         '''
         Show row content.
         '''
         # TODO: find a way to generalize select method (use it with different queries)
-        # TODO: do not use self.cursor and self.cursor.execute but use read method
-        pass
-        # code to show row content
+        select_command = '''SELECT * FROM products WHERE asin = ?'''
+
+        self.read(select_command, product)
+
+        rows = self.cursor.fetchall()
+        # TODO: evaluate to insert self.cursor.fetchall into read method
+
+        for row in rows:
+            print(row)
+        # TODO: evalutate to insert for loop into read method
+        # maybe in the final version there is no need to print results here
     
     def select_all(self):
         '''
