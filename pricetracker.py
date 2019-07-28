@@ -186,12 +186,15 @@ class Database (object):
         
         self.create_table()
     
-    def read(self, command):
+    def read(self, command, values=None):
         '''
         Read content from database.
         '''
         self.cursor = self.db.cursor()
-        self.cursor.execute(command)
+        if values is not None:
+            self.cursor.execute(command, values)
+        else:
+            self.cursor.execute(command)
         # TODO: manage query with and without values
     
     def write(self, command, values=None):
