@@ -228,14 +228,14 @@ class Database (object):
         
         self.write(create_table_command)
     
-    def drop_table(self):    # TODO: rename product in values?
+    def drop_table(self):
         '''
         Delete table.
         '''
         # TODO: find a way to generalize drop_table method (use it with different tables)
         drop_table_command = '''DROP TABLE products'''
         
-        self.write(drop_table_command)    # TODO: rename product in values?
+        self.write(drop_table_command)
     
     def select(self):
         '''
