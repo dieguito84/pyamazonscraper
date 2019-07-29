@@ -26,7 +26,6 @@ USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:67.0) Gecko/20100101 
 # price difference from last check - float
 
 # TODO: evaluate if it is better to create a table for each user instead of a single table for every user and product
-# TODO: create a method of Database class to group together db.cursor, cursor.execute and db.commit
 
 # TODO: maybe is it better to call this class "Parser"?
 class PriceTracker:
