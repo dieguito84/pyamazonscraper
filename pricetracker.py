@@ -239,12 +239,12 @@ class Database (object):
         
         self.write(drop_table_command)
     
-    def select(self, product):    # TODO: rename product in values?
+    def select(self, column, condition, product):    # TODO: rename product in values?
         '''
         Show row content.
         '''
         # TODO: find a way to generalize select method (use it with different queries)
-        select_command = '''SELECT * FROM products WHERE asin = ?'''    # select by asin
+        select_command = '''SELECT {col} FROM products WHERE {cond} = ?'''.format(col=column, cond=condition)
         # TODO: evaluate if select from other columns is needed
 
         self.read(select_command, product)    # TODO: rename product in values?
@@ -363,7 +363,7 @@ db.select_all()
 product_select = (obj.asin,)
 # added the comma to pass a tuple
 # otherwise I get sqlite3.ProgrammingError: Incorrect number of bindings supplied. The current statement uses 1 error"
-db.select(product_select)
+db.select("id", "asin", product_select)
 
 db.disconnect()
 
