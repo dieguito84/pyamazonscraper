@@ -243,9 +243,7 @@ class Database (object):
         '''
         Show row content.
         '''
-        # TODO: find a way to generalize select method (use it with different queries)
         select_command = '''SELECT {col} FROM products WHERE {cond} = ?'''.format(col=column, cond=condition)
-        # TODO: evaluate if select from other columns is needed
 
         self.read(select_command, product)    # TODO: rename product in values?
 
