@@ -25,7 +25,7 @@ USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:67.0) Gecko/20100101 
 # deal expiry time - int 0 if not present, datetime if present
 # price difference from last check - float
 
-# TODO: evaluate if it is better to create a table for each user instead of a single table for every user and product
+# TODO: evaluate whether it is better to create a table for each user instead of a single table for every user and product
 
 # TODO: maybe is it better to call this class "Parser"?
 class PriceTracker:
@@ -169,7 +169,7 @@ class Product:
         print("L'ultimo check è stato eseguito il " + self.last_check)
 
 
-# TODO: evaluate if it is better to split database management into a standalone module (db.py?)
+# TODO: evaluate whether it is better to split database management into a standalone module (db.py?)
 class Database (object):
     '''
     Database management.
@@ -248,11 +248,11 @@ class Database (object):
         self.read(select_command, product)    # TODO: rename product in values?
 
         rows = self.cursor.fetchall()
-        # TODO: evaluate to insert self.cursor.fetchall into read method
+        # TODO: evaluate whether insert self.cursor.fetchall into read method
 
         for row in rows:
             print(row)
-        # TODO: evalutate to insert for loop into read method
+        # TODO: evalutate whether insert for loop into read method
         # maybe in the final version there is no need to print results here
     
     def select_all(self):
@@ -265,11 +265,11 @@ class Database (object):
         self.read(select_all_command)
 
         rows = self.cursor.fetchall()
-        # TODO: evaluate to insert self.cursor.fetchall into read method
+        # TODO: evaluate whether insert self.cursor.fetchall into read method
 
         for row in rows:
             print(row)
-        # TODO: evalutate to insert for loop into read method
+        # TODO: evalutate whether insert for loop into read method
         # maybe in the final version there is no need to print results here
     
     def insert(self, product):    # TODO: rename product in values?
