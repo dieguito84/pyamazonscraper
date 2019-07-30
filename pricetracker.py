@@ -213,7 +213,7 @@ class Database (object):
         '''
         Create table.
         '''
-        # TODO: find a way to generalize create_table method (use it with different tables)
+        # TODO: find a way to generalize create_table method (use it with different tables) - refer to select method
         create_table_command = '''CREATE TABLE IF NOT EXISTS products (
                                 id integer PRIMARY KEY AUTOINCREMENT NOT NULL,
                                 username varchar NOT NULL,
@@ -234,7 +234,7 @@ class Database (object):
         '''
         Delete table.
         '''
-        # TODO: find a way to generalize drop_table method (use it with different tables)
+        # TODO: find a way to generalize drop_table method (use it with different tables) - refer to select method
         drop_table_command = '''DROP TABLE products'''
         
         self.write(drop_table_command)
@@ -259,7 +259,7 @@ class Database (object):
         '''
         Show all rows content.
         '''
-        # TODO: find a way to generalize select_all method (use it on different tables)
+        # TODO: find a way to generalize select_all method (use it on different tables) - refer to select method
         select_all_command = '''SELECT * FROM products'''
        
         self.read(select_all_command)
@@ -276,7 +276,7 @@ class Database (object):
         '''
         Insert row into the table.
         '''
-        # TODO: find a way to generalize insert method (use it on different tables and fields)
+        # TODO: find a way to generalize insert method (use it on different tables and fields) - refer to select method
         insert_command = '''INSERT INTO products(username,asin,url,title,
                             price,rating,last_check,is_deal,deal_expiry_time,
                             price_diff)
@@ -290,7 +290,7 @@ class Database (object):
         '''
         Update row content.
         '''
-        # TODO: find a way to generalize update method (use it on different tables and fields and with conditions)
+        # TODO: find a way to generalize update method (use it on different tables and fields and with conditions) - refer to select method
         update_command = '''UPDATE products SET last_check = ?
                             WHERE id = ?'''
         
@@ -300,7 +300,7 @@ class Database (object):
         '''
         Delete row.
         '''
-        # TODO: find a way to generalize delete method (use it on different tables with different conditions)
+        # TODO: find a way to generalize delete method (use it on different tables with different conditions) - refer to select method
         delete_command = '''DELETE FROM products WHERE id = ?'''
         
         self.write(delete_command, product)    # TODO: rename product in values?
@@ -309,7 +309,7 @@ class Database (object):
         '''
         Delete all rows.
         '''
-        # TODO: find a way to generalize delete_all method (use it on different tables)
+        # TODO: find a way to generalize delete_all method (use it on different tables) - refer to select method
         delete_all_command = '''DELETE FROM products'''
 
         self.write(delete_all_command)
