@@ -127,7 +127,7 @@ class PriceTracker:
         '''
         pass
         # code to get price difference from last check
-    
+
 
 class Product:
     '''
@@ -286,13 +286,13 @@ class Database (object):
 
         return self.cursor.lastrowid
     
-    def update(self, product):    # TODO: rename product in values?
+    def update(self, column, condition, product):    # TODO: rename product in values?
         '''
         Update row content.
         '''
         # TODO: find a way to generalize update method (use it on different tables and fields and with conditions) - refer to select method
-        update_command = '''UPDATE products SET last_check = ?
-                            WHERE id = ?'''
+        update_command = '''UPDATE products SET {col} = ?
+                            WHERE {cond} = ?'''.format(col=column, cond=condition)
         
         self.write(update_command, product)    # TODO: rename product in values?
     
