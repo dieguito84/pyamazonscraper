@@ -290,7 +290,6 @@ class Database (object):
         '''
         Update row content.
         '''
-        # TODO: find a way to generalize update method (use it on different tables and fields and with conditions) - refer to select method
         update_command = '''UPDATE products SET {col} = ?
                             WHERE {cond} = ?'''.format(col=column, cond=condition)
         
