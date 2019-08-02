@@ -344,10 +344,10 @@ product = ("dieguito84", obj.asin, obj.url, obj.title, obj.price, obj.rating, ob
 #db.insert(product)
 
 product_update = (obj.last_check, "4")
-db.update("last_check", "id", product_update)
+#db.update("last_check", "id", product_update)
 
 product_delete = ("5")
-#db.delete(product_delete)
+#db.delete("id", product_delete)
 
 #db.delete_all()
 
