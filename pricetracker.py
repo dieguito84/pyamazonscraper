@@ -351,7 +351,7 @@ product_delete = ("5")
 
 #db.delete_all()
 
-#db.drop_table()
+#db.drop_table("products")
 
 #db.commit()
 
