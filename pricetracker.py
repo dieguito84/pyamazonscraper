@@ -230,12 +230,12 @@ class Database (object):
         
         self.write(create_table_command)
     
-    def drop_table(self):
+    def drop_table(self, table):
         '''
         Delete table.
         '''
         # TODO: find a way to generalize drop_table method (use it with different tables) - refer to select method
-        drop_table_command = '''DROP TABLE products'''
+        drop_table_command = '''DROP TABLE {tab}'''.format(tab=table)
         
         self.write(drop_table_command)
     
