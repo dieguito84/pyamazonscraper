@@ -355,7 +355,7 @@ product_delete = ("5")
 
 #db.commit()
 
-db.select_all()
+db.select_all("products")
 
 product_select = (obj.asin,)
 # added the comma to pass a tuple
