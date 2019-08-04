@@ -209,12 +209,12 @@ class Database (object):
         self.db.commit()
         # TODO: manage query with and without values
     
-    def create_table(self):
+    def create_table(self, table):
         '''
         Create table.
         '''
         # TODO: find a way to generalize create_table method (use it with different tables) - refer to select method
-        create_table_command = '''CREATE TABLE IF NOT EXISTS products (
+        create_table_command = '''CREATE TABLE IF NOT EXISTS {tab} (
                                 id integer PRIMARY KEY AUTOINCREMENT NOT NULL,
                                 username varchar NOT NULL,
                                 asin varchar NOT NULL,
@@ -226,7 +226,7 @@ class Database (object):
                                 is_deal bolean NOT NULL,
                                 deal_expiry_time datetime,
                                 price_diff float
-                                );'''
+                                );'''.format(tab=table)
         
         self.write(create_table_command)
     
