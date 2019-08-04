@@ -234,7 +234,6 @@ class Database (object):
         '''
         Delete table.
         '''
-        # TODO: find a way to generalize drop_table method (use it with different tables) - refer to select method
         drop_table_command = '''DROP TABLE {tab}'''.format(tab=table)
         
         self.write(drop_table_command)
