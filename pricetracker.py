@@ -259,7 +259,7 @@ class Database (object):
         '''
         Show all rows content.
         '''
-        # TODO: find a way to generalize select_all method (use it on different tables) - refer to select method
+        # TODO: find a way to check if table exists befor query execution
         select_all_command = '''SELECT * FROM {tab}'''.format(tab=table)
        
         self.read(select_all_command)
