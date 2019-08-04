@@ -183,6 +183,7 @@ class Database (object):
         self.db = sqlite3.connect(db_file)
         self.db_file = db_file    # is it really useful?
         
+        # TODO: maybe is better to execute create_table method outside of object constructor?
         self.create_table("products")
     
     def read(self, command, values=None):
