@@ -242,6 +242,7 @@ class Database (object):
         '''
         Show row content.
         '''
+        # TODO: find a way to check if table exists befor query execution
         select_command = '''SELECT {col} FROM products WHERE {cond} = ?'''.format(col=column, cond=condition)
 
         self.read(select_command, product)    # TODO: rename product in values?
