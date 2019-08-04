@@ -255,12 +255,12 @@ class Database (object):
         # TODO: evalutate whether insert for loop into read method
         # maybe in the final version there is no need to print results here
     
-    def select_all(self):
+    def select_all(self, table):
         '''
         Show all rows content.
         '''
         # TODO: find a way to generalize select_all method (use it on different tables) - refer to select method
-        select_all_command = '''SELECT * FROM products'''
+        select_all_command = '''SELECT * FROM {tab}'''.format(tab=table)
        
         self.read(select_all_command)
 
