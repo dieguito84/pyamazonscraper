@@ -309,7 +309,6 @@ class Database (object):
         '''
         Delete all rows.
         '''
-        # TODO: find a way to generalize delete_all method (use it on different tables) - refer to select method
         delete_all_command = '''DELETE FROM {tab}'''.format(tab=table)
 
         self.write(delete_all_command)
