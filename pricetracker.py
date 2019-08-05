@@ -350,7 +350,7 @@ product_update = (obj.last_check, "4")
 product_delete = ("5")
 #db.delete("id", product_delete)
 
-#db.delete_all()
+#db.delete_all("products")
 
 #db.drop_table("products")
 
