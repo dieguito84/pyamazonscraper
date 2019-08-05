@@ -214,7 +214,6 @@ class Database (object):
         '''
         Create table.
         '''
-        # TODO: find a way to generalize create_table method (use it with different tables) - refer to select method
         create_table_command = '''CREATE TABLE IF NOT EXISTS {tab} (
                                 id integer PRIMARY KEY AUTOINCREMENT NOT NULL,
                                 username varchar NOT NULL,
