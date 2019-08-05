@@ -305,12 +305,12 @@ class Database (object):
         
         self.write(delete_command, product)    # TODO: rename product in values?
     
-    def delete_all(self):
+    def delete_all(self, table):
         '''
         Delete all rows.
         '''
         # TODO: find a way to generalize delete_all method (use it on different tables) - refer to select method
-        delete_all_command = '''DELETE FROM products'''
+        delete_all_command = '''DELETE FROM {tab}'''.format(tab=table)
 
         self.write(delete_all_command)
 
