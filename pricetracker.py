@@ -295,12 +295,12 @@ class Database (object):
         
         self.write(update_command, product)    # TODO: rename product in values?
     
-    def delete(self, condition, product):    # TODO: rename product in values?
+    def delete(self, table, condition, product):    # TODO: rename product in values?
         '''
         Delete row.
         '''
         # TODO: find a way to generalize delete method (use it on different tables with different conditions) - refer to select method
-        delete_command = '''DELETE FROM products WHERE {cond} = ?'''.format(cond=condition)
+        delete_command = '''DELETE FROM {tab} WHERE {cond} = ?'''.format(tab=table, cond=condition)
         
         self.write(delete_command, product)    # TODO: rename product in values?
     
