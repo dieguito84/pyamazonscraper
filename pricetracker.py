@@ -238,12 +238,12 @@ class Database (object):
         
         self.write(drop_table_command)
     
-    def select(self, column, condition, product):    # TODO: rename product in values?
+    def select(self, column, table, condition, product):    # TODO: rename product in values?
         '''
         Show row content.
         '''
         # TODO: find a way to check if table exists befor query execution
-        select_command = '''SELECT {col} FROM products WHERE {cond} = ?'''.format(col=column, cond=condition)
+        select_command = '''SELECT {col} FROM {tab} WHERE {cond} = ?'''.format(col=column, tab=table, cond=condition)
 
         self.read(select_command, product)    # TODO: rename product in values?
 
