@@ -358,7 +358,7 @@ db.select_all("products")
 product_select = (obj.asin,)
 # added the comma to pass a tuple
 # otherwise I get sqlite3.ProgrammingError: Incorrect number of bindings supplied. The current statement uses 1 error"
-db.select("id", "asin", product_select)
+db.select("id", "products", "asin", product_select)
 
 db.disconnect()
 
