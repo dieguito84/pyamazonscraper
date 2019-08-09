@@ -276,7 +276,6 @@ class Database (object):
         '''
         Insert row into the table.
         '''
-        # TODO: find a way to generalize insert method (use it on different tables and fields) - refer to select method
         insert_command = '''INSERT INTO {tab}(username,asin,url,title,
                             price,rating,last_check,is_deal,deal_expiry_time,
                             price_diff)
