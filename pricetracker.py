@@ -272,15 +272,15 @@ class Database (object):
         # TODO: evalutate whether insert for loop into read method
         # maybe in the final version there is no need to print results here
     
-    def insert(self, product):    # TODO: rename product in values?
+    def insert(self, table, product):    # TODO: rename product in values?
         '''
         Insert row into the table.
         '''
         # TODO: find a way to generalize insert method (use it on different tables and fields) - refer to select method
-        insert_command = '''INSERT INTO products(username,asin,url,title,
+        insert_command = '''INSERT INTO {tab}(username,asin,url,title,
                             price,rating,last_check,is_deal,deal_expiry_time,
                             price_diff)
-              VALUES(?,?,?,?,?,?,?,?,?,?)'''
+              VALUES(?,?,?,?,?,?,?,?,?,?)'''.format(tab=table)
         
         self.write(insert_command, product)    # TODO: rename product in values?
 
