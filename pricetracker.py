@@ -238,12 +238,12 @@ class Database (object):
         
         self.write(drop_table_command)
     
-    def check_table(self):
+    def check_table(self, table):
         '''
         Check table existence.
         '''
         pass
-        # code to check table existance
+        # code to check table existence
     
     def select(self, column, table, condition, product):    # TODO: rename product in values?
         '''
