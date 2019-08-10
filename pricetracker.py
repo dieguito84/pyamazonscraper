@@ -258,15 +258,19 @@ class Database (object):
         # TODO: find a way to check if table exists befor query execution
         select_command = '''SELECT {col} FROM {tab} WHERE {cond} = ?'''.format(col=column, tab=table, cond=condition)
 
-        self.read(select_command, product)    # TODO: rename product in values?
+        if self.check_table(table) is True:
+            self.read(select_command, product)    # TODO: rename product in values?
 
-        rows = self.cursor.fetchall()
-        # TODO: evaluate whether insert self.cursor.fetchall into read method
+            rows = self.cursor.fetchall()
+            # TODO: evaluate whether insert self.cursor.fetchall into read method
 
-        for row in rows:
-            print(row)
-        # TODO: evalutate whether insert for loop into read method
-        # maybe in the final version there is no need to print results here
+            for row in rows:
+                print(row)
+            # TODO: evalutate whether insert for loop into read method
+            # maybe in the final version there is no need to print results here
+        else:
+            pass
+            # code to execute when table does not exists
     
     def select_all(self, table):
         '''
