@@ -238,6 +238,13 @@ class Database (object):
         
         self.write(drop_table_command)
     
+    def check_table(self):
+        '''
+        Check table existence.
+        '''
+        pass
+        # code to check table existance
+    
     def select(self, column, table, condition, product):    # TODO: rename product in values?
         '''
         Show row content.
