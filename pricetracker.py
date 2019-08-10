@@ -255,7 +255,6 @@ class Database (object):
         '''
         Show row content.
         '''
-        # TODO: find a way to check if table exists befor query execution
         select_command = '''SELECT {col} FROM {tab} WHERE {cond} = ?'''.format(col=column, tab=table, cond=condition)
 
         if self.check_table(table) is True:
@@ -276,7 +275,6 @@ class Database (object):
         '''
         Show all rows content.
         '''
-        # TODO: find a way to check if table exists befor query execution
         select_all_command = '''SELECT * FROM {tab}'''.format(tab=table)
         
         if self.check_table(table) is True:
