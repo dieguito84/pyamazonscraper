@@ -242,8 +242,14 @@ class Database (object):
         '''
         Check table existence.
         '''
-        pass
-        # code to check table existence
+        check_table_command = '''SELECT count(name) FROM sqlite_master WHERE type="table" AND name="{tab}"'''.format(tab=table)
+
+        self.read(check_table_command)
+
+        if self.cursor.fetchone()[0] == 1:
+            return True
+        else:
+            return False
     
     def select(self, column, table, condition, product):    # TODO: rename product in values?
         '''
