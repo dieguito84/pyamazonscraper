@@ -353,7 +353,7 @@ obj = Product(url, pt.asin(url), pt.title(page), pt.price(page), pt.rating(page)
 obj.details()
 
 # TODO: create a function to get price difference from last check (it should go in PriceTracker class)
-# TODO: implement select method first (it must be used in last_check method), using a way to generalize it
+
 db = Database("pricetracker.sqlite3", "products")
 
 product = ("dieguito84", obj.asin, obj.url, obj.title, obj.price, obj.rating, obj.last_check, obj.is_deal, obj.deal_expiry_time, "4")
