@@ -112,7 +112,8 @@ class PriceTracker:
         '''
         Get time remaining for a deal.
         '''
-        if pt.is_deal(page) == True:    # first check if is a deal using is_deal method
+        #if pt.is_deal(page) == True:    # first check if is a deal using is_deal method
+        if self.is_deal(html) == True:    # first check if is a deal using is_deal method
             try:
                 self._deal_expiry_time = html.find(id=re.compile("deal_expiry_time")).get_text()    # used re.compile to find a piece of string through regular expression
                 return self._deal_expiry_time[13:]    # remove "Termina tra "
@@ -346,49 +347,45 @@ def main():
     '''
     Main execution.
     '''
-    pass
-    # code to execute in main function here
-
     # TODO: in the main execution function if asin already exists in the table then use update, else use insert
+
+    pt = PriceTracker()
+
+    page = pt.html("https://www.amazon.it/Rowenta-Smart-Force-Essential-Aspirapolvere/dp/B07BCNBZX8/ref=gbps_tit_s-5_1669_45c55016?smid=A11IL2PNWYJU7H&pf_rd_p=55660c59-f0e0-412d-84b8-63a94ff41669&pf_rd_s=slot-5&pf_rd_t=701&pf_rd_i=gb_main&pf_rd_m=A11IL2PNWYJU7H&pf_rd_r=9APEYZYZMMXHPN5SY7ZQ")
+
+    url = "https://www.amazon.it/Rowenta-Smart-Force-Essential-Aspirapolvere/dp/B07BCNBZX8/ref=gbps_tit_s-5_1669_45c55016?smid=A11IL2PNWYJU7H&pf_rd_p=55660c59-f0e0-412d-84b8-63a94ff41669&pf_rd_s=slot-5&pf_rd_t=701&pf_rd_i=gb_main&pf_rd_m=A11IL2PNWYJU7H&pf_rd_r=9APEYZYZMMXHPN5SY7ZQ"
+
+    obj = Product(url, pt.asin(url), pt.title(page), pt.price(page), pt.rating(page), pt.last_check(), pt.is_deal(page), pt.deal_expiry_time(page))
+
+    obj.details()
+
+    # TODO: create a function to get price difference from last check (it should go in PriceTracker class)
+
+    db = Database("pricetracker.sqlite3", "products")
+
+    product = ("dieguito84", obj.asin, obj.url, obj.title, obj.price, obj.rating, obj.last_check, obj.is_deal, obj.deal_expiry_time, "4")
+    #db.insert("products", product)
+
+    product_update = (obj.last_check, "4")
+    #db.update("last_check", "id", product_update)
+
+    product_delete = ("2")
+    #db.delete("products", "id", product_delete)
+
+    #db.delete_all("products")
+
+    #db.drop_table("products")
+
+    #db.commit()
+
+    db.select_all("products")
+
+    product_select = (obj.asin,)
+    # added the comma to pass a tuple
+    # otherwise I get sqlite3.ProgrammingError: Incorrect number of bindings supplied. The current statement uses 1 error"
+    db.select("id", "products", "asin", product_select)
+
+    db.disconnect()
 
 if __name__ == "__main__":
     main()
-
-
-pt = PriceTracker()
-
-page = pt.html("https://www.amazon.it/Rowenta-Smart-Force-Essential-Aspirapolvere/dp/B07BCNBZX8/ref=gbps_tit_s-5_1669_45c55016?smid=A11IL2PNWYJU7H&pf_rd_p=55660c59-f0e0-412d-84b8-63a94ff41669&pf_rd_s=slot-5&pf_rd_t=701&pf_rd_i=gb_main&pf_rd_m=A11IL2PNWYJU7H&pf_rd_r=9APEYZYZMMXHPN5SY7ZQ")
-
-url = "https://www.amazon.it/Rowenta-Smart-Force-Essential-Aspirapolvere/dp/B07BCNBZX8/ref=gbps_tit_s-5_1669_45c55016?smid=A11IL2PNWYJU7H&pf_rd_p=55660c59-f0e0-412d-84b8-63a94ff41669&pf_rd_s=slot-5&pf_rd_t=701&pf_rd_i=gb_main&pf_rd_m=A11IL2PNWYJU7H&pf_rd_r=9APEYZYZMMXHPN5SY7ZQ"
-
-obj = Product(url, pt.asin(url), pt.title(page), pt.price(page), pt.rating(page), pt.last_check(), pt.is_deal(page), pt.deal_expiry_time(page))
-
-obj.details()
-
-# TODO: create a function to get price difference from last check (it should go in PriceTracker class)
-
-db = Database("pricetracker.sqlite3", "products")
-
-product = ("dieguito84", obj.asin, obj.url, obj.title, obj.price, obj.rating, obj.last_check, obj.is_deal, obj.deal_expiry_time, "4")
-#db.insert("products", product)
-
-product_update = (obj.last_check, "4")
-#db.update("last_check", "id", product_update)
-
-product_delete = ("2")
-#db.delete("products", "id", product_delete)
-
-#db.delete_all("products")
-
-#db.drop_table("products")
-
-#db.commit()
-
-db.select_all("products")
-
-product_select = (obj.asin,)
-# added the comma to pass a tuple
-# otherwise I get sqlite3.ProgrammingError: Incorrect number of bindings supplied. The current statement uses 1 error"
-db.select("id", "products", "asin", product_select)
-
-db.disconnect()
