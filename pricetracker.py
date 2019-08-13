@@ -349,6 +349,8 @@ def main():
     pass
     # code to execute in main function here
 
+    # TODO: in the main execution function if asin already exists in the table then use update, else use insert
+
 if __name__ == "__main__":
     main()
 
@@ -390,5 +392,3 @@ product_select = (obj.asin,)
 db.select("id", "products", "asin", product_select)
 
 db.disconnect()
-
-# TODO: in the main execution function if asin already exists in the table then use update, else use insert
