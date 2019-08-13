@@ -112,7 +112,6 @@ class PriceTracker:
         '''
         Get time remaining for a deal.
         '''
-        #if pt.is_deal(page) == True:    # first check if is a deal using is_deal method
         if self.is_deal(html) == True:    # first check if is a deal using is_deal method
             try:
                 self._deal_expiry_time = html.find(id=re.compile("deal_expiry_time")).get_text()    # used re.compile to find a piece of string through regular expression
