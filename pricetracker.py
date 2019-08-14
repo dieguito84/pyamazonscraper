@@ -8,8 +8,6 @@ from time import strftime
 
 USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:67.0) Gecko/20100101 Firefox/67.0"
 
-# I will use BeautifulSoup over requests-html because of performance and compatibility with Python 3.5
-
 # TODO: think the entire application with Telegram Bot integration in mind
 
 # SQLite tables fields:
