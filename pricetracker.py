@@ -194,6 +194,7 @@ class Database (object):
         else:
             self.cursor.execute(command)
         # TODO: manage query with and without values
+        # TODO: add cursor return
     
     def write(self, command, values=None):
         '''
@@ -207,6 +208,7 @@ class Database (object):
 
         self.db.commit()
         # TODO: manage query with and without values
+        # TODO: add cursor return
     
     def create_table(self, table):
         '''
