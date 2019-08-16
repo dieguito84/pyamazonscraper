@@ -270,6 +270,7 @@ class Database (object):
         else:
             pass
             # code to execute when table does not exists
+        # TODO: add a way to return values (needed for variable assignment)
     
     def select_all(self, table):
         '''
@@ -290,6 +291,7 @@ class Database (object):
         else:
             pass
             # code to execute when table does not exists
+        # TODO: add a way to return values (needed for variable assignment)
     
     def insert(self, table, product):    # TODO: rename product in values?
         '''
@@ -303,6 +305,7 @@ class Database (object):
         self.write(insert_command, product)    # TODO: rename product in values?
 
         return self.cursor.lastrowid
+        # TODO: check what is returnet (is it needed for variable assignment?)
     
     def update(self, column, condition, product):    # TODO: rename product in values?
         '''
@@ -312,6 +315,7 @@ class Database (object):
                             WHERE {cond} = ?'''.format(col=column, cond=condition)
         
         self.write(update_command, product)    # TODO: rename product in values?
+        # TODO: return something (is it needed for variable assignment?)
     
     def delete(self, table, condition, product):    # TODO: rename product in values?
         '''
@@ -320,6 +324,7 @@ class Database (object):
         delete_command = '''DELETE FROM {tab} WHERE {cond} = ?'''.format(tab=table, cond=condition)
         
         self.write(delete_command, product)    # TODO: rename product in values?
+        # TODO: return something (is it needed for variable assignment?)
     
     def delete_all(self, table):
         '''
@@ -328,6 +333,7 @@ class Database (object):
         delete_all_command = '''DELETE FROM {tab}'''.format(tab=table)
 
         self.write(delete_all_command)
+        # TODO: return something (is it needed for variable assignment?)
 
     def commit(self):
         '''
