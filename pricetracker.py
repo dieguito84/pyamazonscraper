@@ -379,6 +379,13 @@ def main():
     # otherwise I get sqlite3.ProgrammingError: Incorrect number of bindings supplied. The current statement uses 1 error"
     db.select("id", "products", "asin", product_select)
 
+    # TEST FOR price_diff METHOD
+    #last_price_select = (obj.asin,)
+    #last_price = db.select("price", "products", "asin", last_price_select) 
+    #current_price = obj.price
+    #print("Il vecchio prezzo era {old_price}".format(old_price=last_price))
+    #print("Il nuovo prezzo è {new_price}".format(new_price=current_price))
+
     db.disconnect()
 
 if __name__ == "__main__":
