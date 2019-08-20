@@ -266,7 +266,6 @@ class Database (object):
         else:
             pass
             # code to execute when table does not exists
-        # TODO: add a way to return values (needed for variable assignment)
     
     def select_all(self, table):
         '''
@@ -283,7 +282,6 @@ class Database (object):
         else:
             pass
             # code to execute when table does not exists
-        # TODO: add a way to return values (needed for variable assignment)
     
     def insert(self, table, product):    # TODO: rename product in values?
         '''
