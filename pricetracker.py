@@ -305,7 +305,7 @@ class Database (object):
         self.write(insert_command, product)    # TODO: rename product in values?
 
         return self.cursor.lastrowid
-        # TODO: check what is returnet (is it needed for variable assignment?)
+        # TODO: check what is returned (is it needed for variable assignment?)
     
     def update(self, column, condition, product):    # TODO: rename product in values?
         '''
