@@ -260,13 +260,9 @@ class Database (object):
         if self.check_table(table) is True:
             self.read(select_command, product)    # TODO: rename product in values?
 
-            rows = self.cursor.fetchall()
+            return self.cursor.fetchall()
             # TODO: evaluate whether insert self.cursor.fetchall into read method
 
-            for row in rows:
-                print(row)
-            # TODO: evalutate whether insert for loop into read method
-            # maybe in the final version there is no need to print results here
         else:
             pass
             # code to execute when table does not exists
