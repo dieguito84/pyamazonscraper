@@ -261,7 +261,7 @@ class Database (object):
             self.read(select_command, product)    # TODO: rename product in values?
 
             return self.cursor.fetchall()
-            # TODO: evaluate whether insert self.cursor.fetchall into read method
+            # TODO: evaluate whether insert return of self.cursor.fetchall into read method
 
         else:
             pass
