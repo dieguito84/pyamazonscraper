@@ -384,7 +384,7 @@ def main():
     print("Il vecchio prezzo era {old_price}".format(old_price=last_price[0][0]))
     print("Il nuovo prezzo è {new_price}".format(new_price=current_price))
     price_diff = float(last_price[0][0]) - float(current_price)
-    print("La differenza di prezzo è {price_difference}".format(price_difference=price_diff))
+    print("La differenza di prezzo è {price_difference}".format(price_difference=round(price_diff, 2)))
 
     db.disconnect()
 
