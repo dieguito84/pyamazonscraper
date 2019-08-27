@@ -119,12 +119,18 @@ class PriceTracker:
         else:    # if is not a deal just return None
             return None
 
-    def price_diff(self):
+    def price_diff(self, url, html):
         '''
         Get price difference from last check.
         '''
-        pass
-        # code to get price difference from last check
+        _current_price = self.price(html)
+
+        db = Database("pricetracker.sqlite3", "products")
+        _last_price_select = self.asin(url)
+        _last_price = db.select("price", "products", "asin", (_last_price_select,))
+        db.disconnect()
+
+        return round(float(_last_price[0][0]) - float(_current_price), 2)    # 2 decimal places
 
 
 class Product:
@@ -387,6 +393,8 @@ def main():
     print("La differenza di prezzo è {price_difference}".format(price_difference=round(price_diff, 2)))
 
     db.disconnect()
+
+    print(pt.price_diff(url, page))
 
 if __name__ == "__main__":
     main()
