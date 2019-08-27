@@ -126,7 +126,7 @@ class PriceTracker:
         _current_price = self.price(html)
 
         # should I refactor the _last_price retrieve?
-        db = Database("pricetracker.sqlite3", "products")
+        db = Database("pricetracker.sqlite3", "products")    # maybe will be useful to create a function for database initialization?
         _last_price = db.select("price", "products", "asin", (self.asin(url),))
         db.disconnect()
 
@@ -358,7 +358,7 @@ def main():
     obj = Product(url, pt.asin(url), pt.title(page), pt.price(page), pt.rating(page), pt.last_check(), pt.is_deal(page), pt.deal_expiry_time(page))
     obj.details()
 
-    db = Database("pricetracker.sqlite3", "products")
+    db = Database("pricetracker.sqlite3", "products")    # maybe will be useful to create a function for database initialization?
 
     product = ("dieguito84", obj.asin, obj.url, obj.title, obj.price, obj.rating, obj.last_check, obj.is_deal, obj.deal_expiry_time, "4")
     #db.insert("products", product)
