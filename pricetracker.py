@@ -130,7 +130,7 @@ class PriceTracker:
         _last_price = db.select("price", "products", "asin", (_last_price_select,))
         db.disconnect()
 
-        return round(float(_last_price[0][0]) - float(_current_price), 2)    # 2 decimal places
+        return round(float(_last_price[0][0]) - float(_current_price), 2)    # round to 2 decimal places
 
 
 class Product:
