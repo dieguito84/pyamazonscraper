@@ -126,8 +126,7 @@ class PriceTracker:
         _current_price = self.price(html)
 
         db = Database("pricetracker.sqlite3", "products")
-        _last_price_select = self.asin(url)
-        _last_price = db.select("price", "products", "asin", (_last_price_select,))
+        _last_price = db.select("price", "products", "asin", (self.asin(url),))
         db.disconnect()
 
         # TODO: find a way to manage negative price difference, here or in main execution
