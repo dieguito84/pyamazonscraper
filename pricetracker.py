@@ -125,6 +125,7 @@ class PriceTracker:
         '''
         _current_price = self.price(html)
 
+        # should I refactor the _last_price retrieve?
         db = Database("pricetracker.sqlite3", "products")
         _last_price = db.select("price", "products", "asin", (self.asin(url),))
         db.disconnect()
