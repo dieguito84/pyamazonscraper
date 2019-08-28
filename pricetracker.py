@@ -131,6 +131,7 @@ class PriceTracker:
         db.disconnect()
 
         return round(float(_current_price) - float(_last_price[0][0]), 2)    # round to 2 decimal places
+        # TODO: maybe will be useful to return a list containing ["current price", "last price", "price difference"]
 
 
 class Product:
