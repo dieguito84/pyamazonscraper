@@ -130,7 +130,6 @@ class PriceTracker:
         _last_price = db.select("price", "products", "asin", (self.asin(url),))
         db.disconnect()
 
-        # TODO: find a way to manage negative price difference, here or in main execution
         _price_diff = round(float(_current_price) - float(_last_price[0][0]), 2)    # round to 2 decimal places
         return _price_diff
 
