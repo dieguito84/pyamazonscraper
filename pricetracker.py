@@ -131,7 +131,8 @@ class PriceTracker:
         db.disconnect()
 
         # TODO: find a way to manage negative price difference, here or in main execution
-        return round(float(_last_price[0][0]) - float(_current_price), 2)    # round to 2 decimal places
+        _price_diff = round(float(_current_price) - float(_last_price[0][0]), 2)    # round to 2 decimal places
+        return _price_diff
 
 
 class Product:
