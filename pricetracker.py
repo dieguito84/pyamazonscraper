@@ -139,7 +139,7 @@ class Product:
     Basic product details.
     '''
 
-    def __init__(self, url, asin, title, price, rating, last_check, is_deal=False, deal_expiry_time=None):
+    def __init__(self, url, asin, title, price, rating, last_check, is_deal=False, deal_expiry_time=None, price_diff=None):
         '''
         Object constructor.
         '''
@@ -151,6 +151,7 @@ class Product:
         self.last_check = last_check
         self.is_deal = is_deal
         self.deal_expiry_time = deal_expiry_time
+        self.price_diff = price_diff
     
     def details(self):
         '''
