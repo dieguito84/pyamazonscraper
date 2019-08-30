@@ -352,11 +352,11 @@ def main():
     # TODO: in the main execution function if asin already exists in the table then use update, else use insert
     # TODO: evaluate if create specific method/function for update or insert of a product (arguments needed by each sqlite command embedded in the method/function)
 
-    pt = PriceTracker()
-    page = pt.html("https://www.amazon.it/Rowenta-Smart-Force-Essential-Aspirapolvere/dp/B07BCNBZX8/ref=gbps_tit_s-5_1669_45c55016?smid=A11IL2PNWYJU7H&pf_rd_p=55660c59-f0e0-412d-84b8-63a94ff41669&pf_rd_s=slot-5&pf_rd_t=701&pf_rd_i=gb_main&pf_rd_m=A11IL2PNWYJU7H&pf_rd_r=9APEYZYZMMXHPN5SY7ZQ")
+    par = Parser()
+    page = par.html("https://www.amazon.it/Rowenta-Smart-Force-Essential-Aspirapolvere/dp/B07BCNBZX8/ref=gbps_tit_s-5_1669_45c55016?smid=A11IL2PNWYJU7H&pf_rd_p=55660c59-f0e0-412d-84b8-63a94ff41669&pf_rd_s=slot-5&pf_rd_t=701&pf_rd_i=gb_main&pf_rd_m=A11IL2PNWYJU7H&pf_rd_r=9APEYZYZMMXHPN5SY7ZQ")
     url = "https://www.amazon.it/Rowenta-Smart-Force-Essential-Aspirapolvere/dp/B07BCNBZX8/ref=gbps_tit_s-5_1669_45c55016?smid=A11IL2PNWYJU7H&pf_rd_p=55660c59-f0e0-412d-84b8-63a94ff41669&pf_rd_s=slot-5&pf_rd_t=701&pf_rd_i=gb_main&pf_rd_m=A11IL2PNWYJU7H&pf_rd_r=9APEYZYZMMXHPN5SY7ZQ"
 
-    obj = Product(url, pt.asin(url), pt.title(page), pt.price(page), pt.rating(page), pt.last_check(), pt.is_deal(page), pt.deal_expiry_time(page))
+    obj = Product(url, par.asin(url), par.title(page), par.price(page), par.rating(page), par.last_check(), par.is_deal(page), par.deal_expiry_time(page))
     obj.details()
 
     db = Database("pricetracker.sqlite3", "products")    # maybe will be useful to create a function for database initialization?
@@ -389,7 +389,7 @@ def main():
     current_price = obj.price
     print("Il vecchio prezzo era {old_price}".format(old_price=last_price[0][0]))
     print("Il nuovo prezzo è {new_price}".format(new_price=current_price))
-    print("La differenza di prezzo è {price_difference}".format(price_difference=pt.price_diff(url, page)))
+    print("La differenza di prezzo è {price_difference}".format(price_difference=par.price_diff(url, page)))
 
     db.disconnect()
 
