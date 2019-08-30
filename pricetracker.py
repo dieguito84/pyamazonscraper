@@ -26,9 +26,9 @@ USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:67.0) Gecko/20100101 
 # TODO: evaluate whether it is better to create a table for each user instead of a single table for every user and product
 
 # TODO: maybe is it better to name this class "Parser"?
-class PriceTracker:
+class Parser:
     '''
-    Amazon.it price tracker.
+    Amazon.it parser.
     '''
 
     def html(self, url, user_agent=USER_AGENT):
