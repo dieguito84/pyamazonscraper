@@ -173,6 +173,12 @@ class Product:
         else:
             print("Non ci sono recensioni")
         print("L'ultimo check è stato eseguito il " + self.last_check)
+        
+        db = Database("pricetracker.sqlite3", "products")    # maybe will be useful to create a function for database initialization?
+        last_price_select = (self.asin,)
+        last_price = db.select("price", "products", "asin", last_price_select)
+        print("Il vecchio prezzo era {old_price}".format(old_price=last_price[0][0]))
+        print("La differenza di prezzo è {price_difference}".format(price_difference=self.price_diff)
 
 
 # TODO: evaluate whether it is better to split database management into a standalone module (db.py?)
