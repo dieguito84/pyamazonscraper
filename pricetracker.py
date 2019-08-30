@@ -157,26 +157,27 @@ class Product:
         '''
         Print product details.
         '''
-        print("L'URL dell'articolo è " + self.url)
-        print("Il codice ASIN dell'articolo è " + self.asin)
-        print("Il titolo dell'articolo è " + self.title)
+        print("L'URL dell'articolo è " + self.url)    # TODO: use .format data output
+        print("Il codice ASIN dell'articolo è " + self.asin)    # TODO: use .format data output
+        print("Il titolo dell'articolo è " + self.title)    # TODO: use .format data output
         if self.is_deal == True:
             if self.deal_expiry_time != None:
-                print("Il prezzo dell'articolo è " + self.price + " e si tratta di un'offerta che termina tra " + self.deal_expiry_time)
+                print("Il prezzo dell'articolo è " + self.price + " e si tratta di un'offerta che termina tra " + self.deal_expiry_time)    # TODO: use .format data output
             else:
-                print("Il prezzo dell'articolo è " + self.price + " e si tratta di un'offerta")
+                print("Il prezzo dell'articolo è " + self.price + " e si tratta di un'offerta")    # TODO: use .format data output
         else:
-            print("Il prezzo dell'articolo è " + self.price)
+            print("Il prezzo dell'articolo è " + self.price)    # TODO: use .format data output
         
         if self.rating != None:
-            print("La valutazione dell'articolo è " + self.rating)
+            print("La valutazione dell'articolo è " + self.rating)    # TODO: use .format data output
         else:
             print("Non ci sono recensioni")
-        print("L'ultimo check è stato eseguito il " + self.last_check)
+        print("L'ultimo check è stato eseguito il " + self.last_check)    # TODO: use .format data output
         
         db = Database("pricetracker.sqlite3", "products")    # maybe will be useful to create a function for database initialization?
         last_price_select = (self.asin,)
         last_price = db.select("price", "products", "asin", last_price_select)
+        # TODO: insert if statemet if price difference is None (product just added)
         print("Il vecchio prezzo era {old_price}".format(old_price=last_price[0][0]))
         print("La differenza di prezzo è {price_difference}".format(price_difference=self.price_diff))
 
