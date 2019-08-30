@@ -178,7 +178,7 @@ class Product:
         last_price_select = (self.asin,)
         last_price = db.select("price", "products", "asin", last_price_select)
         print("Il vecchio prezzo era {old_price}".format(old_price=last_price[0][0]))
-        print("La differenza di prezzo è {price_difference}".format(price_difference=self.price_diff)
+        print("La differenza di prezzo è {price_difference}".format(price_difference=self.price_diff))
 
 
 # TODO: evaluate whether it is better to split database management into a standalone module (db.py?)
