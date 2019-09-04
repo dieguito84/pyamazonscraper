@@ -158,22 +158,22 @@ class Product:
         '''
         Print product details.
         '''
-        print("L'URL dell'articolo è " + self.url)    # TODO: use .format data output
-        print("Il codice ASIN dell'articolo è " + self.asin)    # TODO: use .format data output
-        print("Il titolo dell'articolo è " + self.title)    # TODO: use .format data output
+        print("L'URL dell'articolo è {url}".format(url=self.url))
+        print("Il codice ASIN dell'articolo è {asin}".format(asin=self.asin))
+        print("Il titolo dell'articolo è {title}".format(title=self.title))
         if self.is_deal == True:
             if self.deal_expiry_time != None:
-                print("Il prezzo dell'articolo è " + self.price + " e si tratta di un'offerta che termina tra " + self.deal_expiry_time)    # TODO: use .format data output
+                print("Il prezzo dell'articolo è {price} e si tratta di un'offerta che termina tra {deal_expiry_time}".format(price=self.price, deal_expiry_time=self.deal_expiry_time))
             else:
-                print("Il prezzo dell'articolo è " + self.price + " e si tratta di un'offerta")    # TODO: use .format data output
+                print("Il prezzo dell'articolo è {price} e si tratta di un'offerta".format(price=self.price))
         else:
-            print("Il prezzo dell'articolo è " + self.price)    # TODO: use .format data output
+            print("Il prezzo dell'articolo è {price}".format(price=self.price))
         
         if self.rating != None:
-            print("La valutazione dell'articolo è " + self.rating)    # TODO: use .format data output
+            print("La valutazione dell'articolo è {rating}".format(rating=self.rating))
         else:
             print("Non ci sono recensioni")
-        print("L'ultimo check è stato eseguito il " + self.last_check)    # TODO: use .format data output
+        print("L'ultimo check è stato eseguito il {last_check}".format(last_check=self.last_check))
         
         db = Database("pricetracker.sqlite3", "products")    # maybe will be useful to create a function for database initialization?
         last_price_select = (self.asin,)
