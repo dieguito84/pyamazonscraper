@@ -179,7 +179,7 @@ class Product:
         last_price_select = (self.asin,)
         last_price = db.select("price", "products", "asin", last_price_select)
         # TODO: insert if statemet if price difference is None (product just added)
-        print("Il vecchio prezzo era {old_price}".format(old_price=last_price[0][0]))
+        print("Il vecchio prezzo era {old_price}".format(old_price=last_price[0][0]))    # tuple inside a list
         print("La differenza di prezzo è {price_difference}".format(price_difference=self.price_diff))
 
 
