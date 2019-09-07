@@ -128,11 +128,13 @@ class Parser:
         # should I refactor the _last_price retrieve?
         db = Database("pricetracker.sqlite3", "products")    # maybe will be useful to create a function for database initialization?
         _last_price = db.select("price", "products", "asin", (self.asin(url),))
-        # TODO: create if statement to manage _last_price empty (product just added). return None in this case
         db.disconnect()
 
-        return round(float(_current_price) - float(_last_price[0][0]), 2)    # round to 2 decimal places
-        # TODO: maybe will be useful to return a list containing ["current price", "last price", "price difference"]
+        if _last_price:
+            return round(float(_current_price) - float(_last_price[0][0]), 2)    # round to 2 decimal places
+            # TODO: maybe will be useful to return a list containing ["current price", "last price", "price difference"]
+        else:
+            return None    # _last_price empty = product just added. return None in this case
 
 
 class Product:
