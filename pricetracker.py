@@ -180,9 +180,12 @@ class Product:
         db = Database("pricetracker.sqlite3", "products")    # maybe will be useful to create a function for database initialization?
         last_price_select = (self.asin,)
         last_price = db.select("price", "products", "asin", last_price_select)
-        # TODO: insert if statemet if price difference is None (product just added)
-        print("Il vecchio prezzo era {old_price}".format(old_price=last_price[0][0]))    # tuple inside a list
-        print("La differenza di prezzo è {price_difference}".format(price_difference=self.price_diff))
+
+        if last_price is not None:
+            print("Il vecchio prezzo era {old_price}".format(old_price=last_price[0][0]))    # tuple inside a list
+            print("La differenza di prezzo è {price_difference}".format(price_difference=self.price_diff))
+        else:
+            print("Il vecchii prezzo non esiste, il prodotto è stato appena aggiunto")
 
 
 # TODO: evaluate whether it is better to split database management into a standalone module (db.py?)
