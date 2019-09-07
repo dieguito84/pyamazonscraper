@@ -134,7 +134,7 @@ class Parser:
             return round(float(_current_price) - float(_last_price[0][0]), 2)    # round to 2 decimal places
             # TODO: maybe will be useful to return a list containing ["current price", "last price", "price difference"]
         else:
-            return None    # _last_price empty = product just added. return None in this case
+            return None    # if _last_price is empty so product is just added. return None in this case
 
 
 class Product:
