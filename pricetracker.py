@@ -271,14 +271,14 @@ class Database (object):
         else:
             return False
     
-    def select(self, column, table, condition, values):    # TODO: rename product in values?
+    def select(self, column, table, condition, values):
         '''
         Show row content.
         '''
         select_command = '''SELECT {col} FROM {tab} WHERE {cond} = ?'''.format(col=column, tab=table, cond=condition)
 
         if self.check_table(table) is True:
-            self.read(select_command, values)    # TODO: rename product in values?
+            self.read(select_command, values)
 
             return self.cursor.fetchall()
             # TODO: evaluate whether insert return of self.cursor.fetchall into read method
@@ -303,7 +303,7 @@ class Database (object):
             pass
             # code to execute when table does not exists
     
-    def insert(self, table, values):    # TODO: rename product in values?
+    def insert(self, table, values):
         '''
         Insert row into the table.
         '''
@@ -312,28 +312,28 @@ class Database (object):
                             price_diff)
               VALUES(?,?,?,?,?,?,?,?,?,?)'''.format(tab=table)
         
-        self.write(insert_command, values)    # TODO: rename product in values?
+        self.write(insert_command, values)
 
         return self.cursor.lastrowid
         # TODO: check what is returned (is it needed for variable assignment?)
     
-    def update(self, column, condition, values):    # TODO: rename product in values?
+    def update(self, column, condition, values):
         '''
         Update row content.
         '''
         update_command = '''UPDATE products SET {col} = ?
                             WHERE {cond} = ?'''.format(col=column, cond=condition)
         
-        self.write(update_command, values)    # TODO: rename product in values?
+        self.write(update_command, values)
         # TODO: return something (is it needed for variable assignment?)
     
-    def delete(self, table, condition, values):    # TODO: rename product in values?
+    def delete(self, table, condition, values):
         '''
         Delete row.
         '''
         delete_command = '''DELETE FROM {tab} WHERE {cond} = ?'''.format(tab=table, cond=condition)
         
-        self.write(delete_command, values)    # TODO: rename product in values?
+        self.write(delete_command, values)
         # TODO: return something (is it needed for variable assignment?)
     
     def delete_all(self, table):
